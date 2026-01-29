@@ -33,6 +33,35 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Filter functionality
+const filterBtns = document.querySelectorAll('.filter-btn');
+const accountCards = document.querySelectorAll('.account-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        const filterValue = btn.dataset.filter;
+        
+        accountCards.forEach(card => {
+            if (filterValue === 'all') {
+                card.style.display = 'block';
+                setTimeout(() => card.style.opacity = '1', 10);
+            } else {
+                const cardCategory = card.querySelector('.account-badge').textContent.toLowerCase();
+                if (cardCategory.includes(filterValue.toLowerCase())) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            }
+        });
+    });
+});
+
 // Handle CTA button click
 document.querySelector('.cta-button').addEventListener('click', function() {
     const accountsSection = document.getElementById('accounts');
@@ -50,6 +79,28 @@ document.querySelectorAll('.buy-button').forEach(button => {
     });
 });
 
+// FAQ functionality
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isActive = question.classList.contains('active');
+        
+        // Close all other answers
+        faqQuestions.forEach(q => {
+            if (q !== question) {
+                q.classList.remove('active');
+                q.nextElementSibling.style.display = 'none';
+            }
+        });
+        
+        // Toggle current answer
+        question.classList.toggle('active');
+        answer.style.display = isActive ? 'none' : 'block';
+    });
+});
+
 // Handle contact form submission
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
@@ -60,10 +111,9 @@ if (contactForm) {
         const email = this.querySelector('input[type="email"]').value;
         const message = this.querySelector('textarea').value;
         
-        // Here you would typically send this data to a server
         console.log('Form submitted:', { name, email, message });
         
-        alert('Thank you for your message! We will get back to you within 24 hours.');
+        alert('Thank you for your message! We will get back to you within 1 hour.');
         this.reset();
     });
 }
@@ -83,7 +133,7 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-document.querySelectorAll('.account-card, .feature-card').forEach(card => {
+document.querySelectorAll('.account-card, .feature-card, .testimonial-card').forEach(card => {
     card.style.opacity = '0';
     observer.observe(card);
 });
@@ -97,11 +147,5 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = '0 2px 5px rgba(0, 0, 0, 0.1)';
     }
 });
-
-// Mobile menu toggle (if needed for smaller screens)
-const mobileMenuToggle = () => {
-    const navMenu = document.querySelector('.nav-menu');
-    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-};
 
 console.log('AccountHub website loaded successfully!');

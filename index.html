@@ -13,8 +13,9 @@
             <div class="logo">AccountHub</div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#accounts" class="nav-link">Browse Accounts</a></li>
+                <li><a href="#accounts" class="nav-link">Browse</a></li>
                 <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -25,6 +26,20 @@
         <div class="hero-content">
             <h1>Welcome to AccountHub</h1>
             <p>Your Trusted Platform for Premium Account Trading</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h4>2000+</h4>
+                    <p>Accounts Sold</p>
+                </div>
+                <div class="stat">
+                    <h4>4.8★</h4>
+                    <p>Avg Rating</p>
+                </div>
+                <div class="stat">
+                    <h4>$500K+</h4>
+                    <p>In Sales</p>
+                </div>
+            </div>
             <button class="cta-button">Browse Accounts Now</button>
         </div>
     </section>
@@ -32,9 +47,18 @@
     <!-- Featured Accounts -->
     <section id="accounts" class="accounts-section">
         <h2>Featured Accounts</h2>
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="gaming">Gaming</button>
+            <button class="filter-btn" data-filter="music">Music</button>
+            <button class="filter-btn" data-filter="streaming">Streaming</button>
+            <button class="filter-btn" data-filter="professional">Professional</button>
+        </div>
         <div class="accounts-grid">
             <div class="account-card">
                 <div class="account-badge">Gaming</div>
+                <div class="account-rating">⭐⭐⭐⭐⭐ (47 reviews)</div>
+                <div class="hot-badge">🔥 HOT DEAL</div>
                 <h3>Steam Account</h3>
                 <p class="account-description">Fully verified premium Steam account with extensive game library</p>
                 <div class="account-details">
@@ -46,7 +70,8 @@
             </div>
 
             <div class="account-card">
-                <div class="account-badge">Music">Spotify</div>
+                <div class="account-badge">Music</div>
+                <div class="account-rating">⭐⭐⭐⭐⭐ (92 reviews)</div>
                 <h3>Spotify Premium</h3>
                 <p class="account-description">1-year premium subscription with family plan access</p>
                 <div class="account-details">
@@ -59,6 +84,8 @@
 
             <div class="account-card">
                 <div class="account-badge">Streaming</div>
+                <div class="account-rating">⭐⭐⭐⭐⭐ (156 reviews)</div>
+                <div class="hot-badge">⚡ BESTSELLER</div>
                 <h3>Netflix Account</h3>
                 <p class="account-description">4K Ultra HD account with multiple profiles and downloads</p>
                 <div class="account-details">
@@ -71,6 +98,7 @@
 
             <div class="account-card">
                 <div class="account-badge">Professional</div>
+                <div class="account-rating">⭐⭐⭐⭐⭐ (83 reviews)</div>
                 <h3>Adobe Creative Cloud</h3>
                 <p class="account-description">Full suite access including Photoshop, Premiere, and After Effects</p>
                 <div class="account-details">
@@ -83,6 +111,7 @@
 
             <div class="account-card">
                 <div class="account-badge">Social</div>
+                <div class="account-rating">⭐⭐⭐⭐⭐ (124 reviews)</div>
                 <h3>Instagram Business Account</h3>
                 <p class="account-description">Verified account with 50K followers and engagement analytics</p>
                 <div class="account-details">
@@ -95,6 +124,7 @@
 
             <div class="account-card">
                 <div class="account-badge">Cloud</div>
+                <div class="account-rating">⭐⭐⭐⭐⭐ (76 reviews)</div>
                 <h3>Google Workspace Pro</h3>
                 <p class="account-description">Enterprise-level email, storage, and collaboration tools</p>
                 <div class="account-details">
@@ -171,14 +201,84 @@
         </div>
     </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Amazing service! Got my Netflix account within seconds. Been using it for 2 months with zero issues. Highly recommend!"</p>
+                <p class="testimonial-author">- Alex M.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The Steam account I bought has over 150 games. Best purchase I've made. Customer service is incredibly responsive!"</p>
+                <p class="testimonial-author">- Jordan K.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Bought the Adobe Creative Cloud subscription and everything worked perfectly. Trusted platform for sure!"</p>
+                <p class="testimonial-author">- Sarah T.</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The Instagram account came with great engagement stats. Been growing even more followers since I bought it. Worth every penny!"</p>
+                <p class="testimonial-author">- Mike D.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question">❓ How do I know the accounts are safe and verified?</button>
+                <div class="faq-answer" style="display: none;">
+                    <p>All our accounts go through a rigorous verification process before listing. We manually test each account, verify authenticity, and ensure they're active and working. We also provide a 30-day money-back guarantee.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">❓ Can I get a refund if I'm not satisfied?</button>
+                <div class="faq-answer" style="display: none;">
+                    <p>Yes! We offer a full 30-day money-back guarantee. If you're not satisfied with your purchase for any reason, simply contact us and we'll refund your money within 24 hours.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">❓ How quickly will I receive my account?</button>
+                <div class="faq-answer" style="display: none;">
+                    <p>Delivery is instant! Once payment is confirmed, you'll receive the account credentials immediately via email. You can start using the account within seconds.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">❓ What payment methods do you accept?</button>
+                <div class="faq-answer" style="display: none;">
+                    <p>We accept all major payment methods including credit cards (Visa, Mastercard, American Express), PayPal, and cryptocurrency for maximum security and convenience.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">❓ Are these accounts permanently mine?</button>
+                <div class="faq-answer" style="display: none;">
+                    <p>Yes! Once you purchase an account, it's yours to keep and use as long as you want. We provide full ownership transfer and support account recovery if needed.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">❓ Is there customer support if I have issues?</button>
+                <div class="faq-answer" style="display: none;">
+                    <p>Absolutely! Our 24/7 customer support team is always ready to help. Email us at sadylitler@gmail.com and we typically respond within 1 hour.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <h2>Get In Touch</h2>
         <div class="contact-container">
             <div class="contact-info">
                 <h3>Contact Information</h3>
-                <p><strong>Email:</strong> support@accounthub.com</p>
-                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
+                <p><strong>Email:</strong> sadylitler@gmail.com</p>
+                <p><strong>Response Time:</strong> Usually within 1 hour</p>
                 <p><strong>Hours:</strong> 24/7 Support Available</p>
             </div>
             <form class="contact-form">
