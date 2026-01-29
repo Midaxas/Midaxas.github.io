@@ -84,14 +84,17 @@ const faqQuestions = document.querySelectorAll('.faq-question');
 
 faqQuestions.forEach(question => {
     question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
+        const faqItem = question.parentElement;
+        const answer = faqItem.querySelector('.faq-answer');
         const isActive = question.classList.contains('active');
         
         // Close all other answers
         faqQuestions.forEach(q => {
+            const item = q.parentElement;
+            const ans = item.querySelector('.faq-answer');
             if (q !== question) {
                 q.classList.remove('active');
-                q.nextElementSibling.style.display = 'none';
+                ans.style.display = 'none';
             }
         });
         
