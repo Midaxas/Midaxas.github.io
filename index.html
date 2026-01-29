@@ -4,13 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AccountHub - Premium Account Marketplace</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-enhanced.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">AccountHub</div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search accounts..." class="search-input">
+                <button class="search-btn">🔍</button>
+            </div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#accounts" class="nav-link">Browse</a></li>
@@ -18,8 +22,24 @@
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            <div class="nav-icons">
+                <button id="darkModeToggle" class="icon-btn" title="Toggle dark mode">🌙</button>
+                <button id="wishlistBtn" class="icon-btn" title="Wishlist"><span class="wishlist-badge">0</span>❤️</button>
+                <button id="cartBtn" class="icon-btn" title="Cart"><span class="cart-badge">0</span>🛒</button>
+            </div>
         </div>
     </nav>
+
+    <!-- Mobile App Banner -->
+    <div class="mobile-app-banner">
+        <p>📱 Download our app for exclusive mobile-only deals!</p>
+        <button class="close-banner">×</button>
+    </div>
+
+    <!-- Flash Sale Banner -->
+    <div id="flashSaleBanner" class="flash-sale-banner">
+        <span class="flash-text">⚡ FLASH SALE: 30% OFF Selected Accounts! Use code: SAVE30</span>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -47,30 +67,75 @@
     <!-- Featured Accounts -->
     <section id="accounts" class="accounts-section">
         <h2>Featured Accounts</h2>
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="gaming">Gaming</button>
-            <button class="filter-btn" data-filter="music">Music</button>
-            <button class="filter-btn" data-filter="streaming">Streaming</button>
-            <button class="filter-btn" data-filter="professional">Professional</button>
+        <div class="accounts-header">
+            <div class="filter-comparison">
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="gaming">Gaming</button>
+                    <button class="filter-btn" data-filter="music">Music</button>
+                    <button class="filter-btn" data-filter="streaming">Streaming</button>
+                    <button class="filter-btn" data-filter="professional">Professional</button>
+                </div>
+                <button id="compareBtn" class="compare-btn">⚖️ Compare Selected</button>
+            </div>
+            <div class="advanced-filters">
+                <input type="number" id="priceMin" placeholder="Min Price" class="filter-input">
+                <input type="number" id="priceMax" placeholder="Max Price" class="filter-input">
+                <select id="sortBy" class="filter-input">
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Top Rated</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
         </div>
         <div class="accounts-grid">
-            <div class="account-card">
-                <div class="account-badge">Gaming</div>
+            <div class="account-card" data-price="249.99" data-category="gaming" data-rating="5">
+                <div class="card-header">
+                    <div class="account-badges">
+                        <div class="account-badge">Gaming</div>
+                        <div class="hot-badge">🔥 HOT DEAL</div>
+                        <div class="inventory-badge">Limited Stock (3 left)</div>
+                    </div>
+                    <button class="wishlist-icon" title="Add to wishlist">♡</button>
+                </div>
+                <div class="seller-info">
+                    <span class="seller-badge">⭐ Verified Seller</span>
+                </div>
                 <div class="account-rating">⭐⭐⭐⭐⭐ (47 reviews)</div>
-                <div class="hot-badge">🔥 HOT DEAL</div>
                 <h3>Steam Account</h3>
                 <p class="account-description">Fully verified premium Steam account with extensive game library</p>
                 <div class="account-details">
                     <span class="detail">Level: 45</span>
                     <span class="detail">Games: 150+</span>
                 </div>
-                <p class="price">$249.99</p>
-                <button class="buy-button">View Details</button>
+                <div class="purchase-metrics">
+                    <span class="purchase-count">📊 127 people bought this week</span>
+                    <span class="delivery-time">⚡ Delivered in 5 min</span>
+                </div>
+                <div class="price-section">
+                    <p class="original-price">Was $299.99</p>
+                    <p class="price">$249.99</p>
+                    <p class="savings">Save $50 (17%)</p>
+                </div>
+                <div class="card-actions">
+                    <button class="buy-button">View Details</button>
+                    <input type="checkbox" class="compare-checkbox" title="Select for comparison">
+                </div>
             </div>
 
-            <div class="account-card">
-                <div class="account-badge">Music</div>
+            <div class="account-card" data-price="99.99" data-category="music" data-rating="5">
+                <div class="card-header">
+                    <div class="account-badges">
+                        <div class="account-badge">Music</div>
+                        <div class="inventory-badge">In Stock</div>
+                    </div>
+                    <button class="wishlist-icon" title="Add to wishlist">♡</button>
+                </div>
+                <div class="seller-info">
+                    <span class="seller-badge">⭐ Verified Seller</span>
+                </div>
                 <div class="account-rating">⭐⭐⭐⭐⭐ (92 reviews)</div>
                 <h3>Spotify Premium</h3>
                 <p class="account-description">1-year premium subscription with family plan access</p>
@@ -78,26 +143,66 @@
                     <span class="detail">Expires: 2027</span>
                     <span class="detail">Playlists: 500+</span>
                 </div>
-                <p class="price">$99.99</p>
-                <button class="buy-button">View Details</button>
+                <div class="purchase-metrics">
+                    <span class="purchase-count">📊 312 people bought this week</span>
+                    <span class="delivery-time">⚡ Delivered in 5 min</span>
+                </div>
+                <div class="price-section">
+                    <p class="original-price">Was $119.99</p>
+                    <p class="price">$99.99</p>
+                    <p class="savings">Save $20 (17%)</p>
+                </div>
+                <div class="card-actions">
+                    <button class="buy-button">View Details</button>
+                    <input type="checkbox" class="compare-checkbox" title="Select for comparison">
+                </div>
             </div>
 
-            <div class="account-card">
-                <div class="account-badge">Streaming</div>
+            <div class="account-card" data-price="129.99" data-category="streaming" data-rating="5">
+                <div class="card-header">
+                    <div class="account-badges">
+                        <div class="account-badge">Streaming</div>
+                        <div class="hot-badge">⚡ BESTSELLER</div>
+                        <div class="inventory-badge">In Stock</div>
+                    </div>
+                    <button class="wishlist-icon" title="Add to wishlist">♡</button>
+                </div>
+                <div class="seller-info">
+                    <span class="seller-badge">⭐ Verified Seller</span>
+                </div>
                 <div class="account-rating">⭐⭐⭐⭐⭐ (156 reviews)</div>
-                <div class="hot-badge">⚡ BESTSELLER</div>
                 <h3>Netflix Account</h3>
                 <p class="account-description">4K Ultra HD account with multiple profiles and downloads</p>
                 <div class="account-details">
                     <span class="detail">Quality: 4K</span>
                     <span class="detail">Profiles: 4</span>
                 </div>
-                <p class="price">$129.99</p>
-                <button class="buy-button">View Details</button>
+                <div class="purchase-metrics">
+                    <span class="purchase-count">📊 489 people bought this week</span>
+                    <span class="delivery-time">⚡ Delivered in 5 min</span>
+                </div>
+                <div class="price-section">
+                    <p class="original-price">Was $159.99</p>
+                    <p class="price">$129.99</p>
+                    <p class="savings">Save $30 (19%)</p>
+                </div>
+                <div class="card-actions">
+                    <button class="buy-button">View Details</button>
+                    <input type="checkbox" class="compare-checkbox" title="Select for comparison">
+                </div>
             </div>
 
-            <div class="account-card">
-                <div class="account-badge">Professional</div>
+            <div class="account-card" data-price="399.99" data-category="professional" data-rating="5">
+                <div class="card-header">
+                    <div class="account-badges">
+                        <div class="account-badge">Professional</div>
+                        <div class="inventory-badge">In Stock</div>
+                    </div>
+                    <button class="wishlist-icon" title="Add to wishlist">♡</button>
+                </div>
+                <div class="seller-info">
+                    <span class="seller-badge">⭐ Verified Seller</span>
+                </div>
                 <div class="account-rating">⭐⭐⭐⭐⭐ (83 reviews)</div>
                 <h3>Adobe Creative Cloud</h3>
                 <p class="account-description">Full suite access including Photoshop, Premiere, and After Effects</p>
@@ -105,12 +210,32 @@
                     <span class="detail">Apps: 20+</span>
                     <span class="detail">Valid: 1 Year</span>
                 </div>
-                <p class="price">$399.99</p>
-                <button class="buy-button">View Details</button>
+                <div class="purchase-metrics">
+                    <span class="purchase-count">📊 156 people bought this week</span>
+                    <span class="delivery-time">⚡ Delivered in 5 min</span>
+                </div>
+                <div class="price-section">
+                    <p class="original-price">Was $499.99</p>
+                    <p class="price">$399.99</p>
+                    <p class="savings">Save $100 (20%)</p>
+                </div>
+                <div class="card-actions">
+                    <button class="buy-button">View Details</button>
+                    <input type="checkbox" class="compare-checkbox" title="Select for comparison">
+                </div>
             </div>
 
-            <div class="account-card">
-                <div class="account-badge">Social</div>
+            <div class="account-card" data-price="179.99" data-category="social" data-rating="5">
+                <div class="card-header">
+                    <div class="account-badges">
+                        <div class="account-badge">Social</div>
+                        <div class="inventory-badge">In Stock</div>
+                    </div>
+                    <button class="wishlist-icon" title="Add to wishlist">♡</button>
+                </div>
+                <div class="seller-info">
+                    <span class="seller-badge">⭐ Verified Seller</span>
+                </div>
                 <div class="account-rating">⭐⭐⭐⭐⭐ (124 reviews)</div>
                 <h3>Instagram Business Account</h3>
                 <p class="account-description">Verified account with 50K followers and engagement analytics</p>
@@ -118,12 +243,32 @@
                     <span class="detail">Followers: 50K</span>
                     <span class="detail">Verified: ✓</span>
                 </div>
-                <p class="price">$179.99</p>
-                <button class="buy-button">View Details</button>
+                <div class="purchase-metrics">
+                    <span class="purchase-count">📊 203 people bought this week</span>
+                    <span class="delivery-time">⚡ Delivered in 5 min</span>
+                </div>
+                <div class="price-section">
+                    <p class="original-price">Was $229.99</p>
+                    <p class="price">$179.99</p>
+                    <p class="savings">Save $50 (22%)</p>
+                </div>
+                <div class="card-actions">
+                    <button class="buy-button">View Details</button>
+                    <input type="checkbox" class="compare-checkbox" title="Select for comparison">
+                </div>
             </div>
 
-            <div class="account-card">
-                <div class="account-badge">Cloud</div>
+            <div class="account-card" data-price="299.99" data-category="cloud" data-rating="5">
+                <div class="card-header">
+                    <div class="account-badges">
+                        <div class="account-badge">Cloud</div>
+                        <div class="inventory-badge">In Stock</div>
+                    </div>
+                    <button class="wishlist-icon" title="Add to wishlist">♡</button>
+                </div>
+                <div class="seller-info">
+                    <span class="seller-badge">⭐ Verified Seller</span>
+                </div>
                 <div class="account-rating">⭐⭐⭐⭐⭐ (76 reviews)</div>
                 <h3>Google Workspace Pro</h3>
                 <p class="account-description">Enterprise-level email, storage, and collaboration tools</p>
@@ -131,8 +276,19 @@
                     <span class="detail">Storage: 2TB</span>
                     <span class="detail">Users: 5</span>
                 </div>
-                <p class="price">$299.99</p>
-                <button class="buy-button">View Details</button>
+                <div class="purchase-metrics">
+                    <span class="purchase-count">📊 89 people bought this week</span>
+                    <span class="delivery-time">⚡ Delivered in 5 min</span>
+                </div>
+                <div class="price-section">
+                    <p class="original-price">Was $349.99</p>
+                    <p class="price">$299.99</p>
+                    <p class="savings">Save $50 (14%)</p>
+                </div>
+                <div class="card-actions">
+                    <button class="buy-button">View Details</button>
+                    <input type="checkbox" class="compare-checkbox" title="Select for comparison">
+                </div>
             </div>
         </div>
     </section>
@@ -201,31 +357,121 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <h2>What Our Customers Say</h2>
+    <!-- Testimonials with Photos -->
+    <section class="testimonials-with-photos">
+        <h2>Verified Customer Reviews</h2>
         <div class="testimonials-grid">
-            <div class="testimonial-card">
+            <div class="testimonial-card-photo">
+                <div class="customer-avatar">👨‍💻</div>
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Amazing service! Got my Netflix account within seconds. Been using it for 2 months with zero issues. Highly recommend!"</p>
-                <p class="testimonial-author">- Alex M.</p>
+                <p class="testimonial-text">"Amazing service! Got my Netflix account within seconds. Been using it for 2 months with zero issues."</p>
+                <p class="customer-name">Alex M.</p>
+                <p class="customer-location">📍 New York, USA</p>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card-photo">
+                <div class="customer-avatar">👩‍🎨</div>
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"The Steam account I bought has over 150 games. Best purchase I've made. Customer service is incredibly responsive!"</p>
-                <p class="testimonial-author">- Jordan K.</p>
+                <p class="testimonial-text">"The Steam account I bought has over 150 games. Best purchase I've made. Support is responsive!"</p>
+                <p class="customer-name">Jordan K.</p>
+                <p class="customer-location">📍 Los Angeles, USA</p>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card-photo">
+                <div class="customer-avatar">👩‍💼</div>
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"Bought the Adobe Creative Cloud subscription and everything worked perfectly. Trusted platform for sure!"</p>
-                <p class="testimonial-author">- Sarah T.</p>
+                <p class="testimonial-text">"Bought Adobe Creative Cloud here. Everything worked perfectly. Highly trusted platform!"</p>
+                <p class="customer-name">Sarah T.</p>
+                <p class="customer-location">📍 Chicago, USA</p>
             </div>
-            <div class="testimonial-card">
+            <div class="testimonial-card-photo">
+                <div class="customer-avatar">👨‍🎬</div>
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"The Instagram account came with great engagement stats. Been growing even more followers since I bought it. Worth every penny!"</p>
-                <p class="testimonial-author">- Mike D.</p>
+                <p class="testimonial-text">"Instagram account with great engagement stats. Been growing even more followers since purchase!"</p>
+                <p class="customer-name">Mike D.</p>
+                <p class="customer-location">📍 Miami, USA</p>
             </div>
         </div>
+    </section>
+
+    <!-- Top Sellers Leaderboard -->
+    <section class="top-sellers">
+        <h2>Top Rated Sellers</h2>
+        <div class="sellers-table">
+            <div class="seller-rank">
+                <div class="rank-number">🥇 #1</div>
+                <div class="seller-details">
+                    <h4>PremiumAccounts Ltd</h4>
+                    <p>⭐⭐⭐⭐⭐ 4.9/5 (1,245 reviews)</p>
+                    <p>2,345 accounts sold | 99.8% satisfaction</p>
+                </div>
+            </div>
+            <div class="seller-rank">
+                <div class="rank-number">🥈 #2</div>
+                <div class="seller-details">
+                    <h4>AccountPro Store</h4>
+                    <p>⭐⭐⭐⭐⭐ 4.8/5 (892 reviews)</p>
+                    <p>1,567 accounts sold | 99.5% satisfaction</p>
+                </div>
+            </div>
+            <div class="seller-rank">
+                <div class="rank-number">🥉 #3</div>
+                <div class="seller-details">
+                    <h4>TrustedHub Marketplace</h4>
+                    <p>⭐⭐⭐⭐⭐ 4.7/5 (654 reviews)</p>
+                    <p>1,123 accounts sold | 99.2% satisfaction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section id="recently-viewed" class="recently-viewed" style="display: none;">
+        <h2>Recently Viewed</h2>
+        <div id="recentlyViewedGrid" class="accounts-grid"></div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="newsletter-content">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive deals, early access to new accounts, and special discounts!</p>
+            <form id="newsletterForm" class="newsletter-form">
+                <input type="email" placeholder="Enter your email" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+            <div class="newsletter-benefits">
+                <span>📧 Exclusive Deals</span>
+                <span>🎁 Special Discounts</span>
+                <span>⚡ Early Access</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Program -->
+    <section class="referral-program">
+        <h2>Earn With Referrals</h2>
+        <div class="referral-content">
+            <div class="referral-info">
+                <h3>Share and Earn Credits!</h3>
+                <p>Invite friends and earn $5 credit for every successful referral</p>
+                <ul>
+                    <li>✓ Share your unique referral link</li>
+                    <li>✓ Friends get 10% off their first purchase</li>
+                    <li>✓ You earn $5 store credit per referral</li>
+                    <li>✓ No limit to how much you can earn</li>
+                </ul>
+                <button class="referral-btn">Get Your Referral Link</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coupon/Promo Section -->
+    <section class="coupon-section">
+        <h2>Have a Promo Code?</h2>
+        <div class="coupon-input">
+            <input type="text" id="couponInput" placeholder="Enter your promo code" maxlength="20">
+            <button id="applyCouponBtn" class="apply-coupon-btn">Apply Code</button>
+        </div>
+        <div id="couponMessage" class="coupon-message"></div>
     </section>
 
     <!-- Contact Section -->
@@ -290,7 +536,43 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Account Detail Modal -->
+    <div id="accountModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div id="comparisonModal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="close-modal">&times;</span>
+            <h2>Account Comparison</h2>
+            <div id="comparisonTable" class="comparison-table"></div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" class="back-to-top" title="Back to top">↑ Top</button>
+
+    <!-- Live Chat Widget -->
+    <div id="chatWidget" class="chat-widget">
+        <div class="chat-header">
+            <h3>💬 Live Chat</h3>
+            <button id="closeChat" class="close-chat">−</button>
+        </div>
+        <div id="chatMessages" class="chat-messages">
+            <div class="chat-message bot">
+                <p>👋 Hi! How can we help you today?</p>
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="sendChat" class="send-btn">Send</button>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2026 AccountHub. All rights reserved.</p>
@@ -302,6 +584,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script-pro.js"></script>
 </body>
 </html>
