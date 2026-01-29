@@ -81,6 +81,7 @@ function initializeAll() {
     setupSearch();
     setupFilters();
     setupWishlist();
+    setupCart();
     setupBackToTop();
     setupDarkMode();
     setupModals();
@@ -361,6 +362,106 @@ function updateWishlistBadge() {
 
 function updateCartBadge() {
     document.querySelector('.cart-badge').textContent = cart.length;
+}
+
+// ============ SHOPPING CART ============
+function setupCart() {
+    const cartBtn = document.getElementById('cartBtn');
+    const cartModal = document.getElementById('cartModal');
+    
+    cartBtn.addEventListener('click', function() {
+        showCartModal();
+    });
+    
+    // Setup close button for cart modal
+    const closeBtn = cartModal.querySelector('.close-modal');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            cartModal.classList.remove('show');
+        });
+    }
+    
+    // Setup clear cart button
+    const clearCartBtn = document.getElementById('clearCartBtn');
+    if (clearCartBtn) {
+        clearCartBtn.addEventListener('click', function() {
+            cart = [];
+            updateCartBadge();
+            localStorage.setItem('cart', JSON.stringify(cart));
+            showCartModal();
+        });
+    }
+    
+    // Setup checkout button
+    const checkoutBtn = document.getElementById('checkoutBtn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function() {
+            if (cart.length === 0) {
+                alert('Your cart is empty');
+                return;
+            }
+            const total = cart.reduce((sum, item) => sum + item.price, 0).toFixed(2);
+            alert(`Processing checkout for ${cart.length} items.\nTotal: $${total}\n\nYou will be redirected to payment.`);
+            cart = [];
+            updateCartBadge();
+            localStorage.setItem('cart', JSON.stringify(cart));
+            cartModal.classList.remove('show');
+        });
+    }
+}
+
+function showCartModal() {
+    const cartModal = document.getElementById('cartModal');
+    const cartItemsDiv = document.getElementById('cartItems');
+    const cartEmptyDiv = document.getElementById('cartEmpty');
+    const cartSummaryDiv = document.getElementById('cartSummary');
+    
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = '';
+        cartEmptyDiv.style.display = 'block';
+        cartSummaryDiv.style.display = 'none';
+    } else {
+        cartEmptyDiv.style.display = 'none';
+        cartSummaryDiv.style.display = 'block';
+        
+        cartItemsDiv.innerHTML = cart.map((item, index) => `
+            <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; border-bottom: 1px solid #ecf0f1; background: #f9f9f9; margin-bottom: 0.5rem; border-radius: 5px;">
+                <div style="flex: 1;">
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary);">${item.name}</h4>
+                    <p style="margin: 0; color: #7f8c8d; font-size: 0.9rem;">Price: $${item.price.toFixed(2)}</p>
+                </div>
+                <button onclick="removeFromCart(${index})" style="background: #e74c3c; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-weight: bold;">Remove</button>
+            </div>
+        `).join('');
+        
+        // Calculate totals
+        const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
+        let discount = 0;
+        
+        // Check if there's a promo code applied
+        const promoInput = document.querySelector('input[placeholder="Enter coupon code"]');
+        if (promoInput && promoInput.value) {
+            const code = promoInput.value.toUpperCase();
+            if (PROMO_CODES[code]) {
+                discount = subtotal * PROMO_CODES[code];
+            }
+        }
+        
+        const total = subtotal - discount;
+        
+        document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById('discount').textContent = `$${discount.toFixed(2)}`;
+        document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+    }
+    
+    cartModal.classList.add('show');
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartBadge();
+    localStorage.setItem('cart', JSON.stringify(cart));
+    showCartModal();
 }
 
 // ============ COMPARISON ============
