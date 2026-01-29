@@ -331,7 +331,14 @@ function addToCart(name, price) {
 // ============ WISHLIST ============
 function setupWishlist() {
     const wishlistBtn = document.getElementById('wishlistBtn');
-    wishlistBtn.addEventListener('click', function() {
+    if (!wishlistBtn) {
+        console.warn('Wishlist button not found');
+        return;
+    }
+    
+    wishlistBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         if (wishlist.length === 0) {
             alert('Your wishlist is empty');
             return;
