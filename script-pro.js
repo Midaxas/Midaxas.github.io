@@ -369,7 +369,14 @@ function setupCart() {
     const cartBtn = document.getElementById('cartBtn');
     const cartModal = document.getElementById('cartModal');
     
-    cartBtn.addEventListener('click', function() {
+    if (!cartBtn || !cartModal) {
+        console.warn('Cart button or modal not found');
+        return;
+    }
+    
+    cartBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         showCartModal();
     });
     
