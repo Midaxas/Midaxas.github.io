@@ -2,6 +2,8 @@
 let cart = [];
 let wishlist = [];
 let recentlyViewed = [];
+let allAccounts = [];
+
 const PROMO_CODES = {
     'SAVE30': 0.30,
     'WELCOME20': 0.20,
@@ -9,7 +11,69 @@ const PROMO_CODES = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    loadAccountsFromAdmin();
     initializeAll();
+});
+
+// Load accounts from admin database
+function loadAccountsFromAdmin() {
+    const adminAccounts = localStorage.getItem('adminAccounts');
+    if (adminAccounts) {
+        allAccounts = JSON.parse(adminAccounts);
+        updateAccountsDisplay();
+    }
+}
+
+// Update accounts display when admin data changes
+function updateAccountsDisplay() {
+    const grid = document.querySelector('.accounts-grid');
+    if (!grid) return;
+    
+    grid.innerHTML = allAccounts.map(account => `
+        <div class="account-card" data-price="${account.price}" data-category="${account.category}" data-rating="${account.rating}">
+            <div class="card-header">
+                <div class="account-badges">
+                    <div class="account-badge">${account.category.charAt(0).toUpperCase() + account.category.slice(1)}</div>
+                    ${account.originalPrice ? `<div class="hot-badge">🔥 HOT DEAL</div>` : ''}
+                    <div class="inventory-badge">In Stock</div>
+                </div>
+                <button class="wishlist-icon" title="Add to wishlist">♡</button>
+            </div>
+            <div class="seller-info">
+                <span class="seller-badge">⭐ Verified Seller</span>
+            </div>
+            <div class="account-rating">⭐⭐⭐⭐⭐ (${account.reviews} reviews)</div>
+            <h3>${account.name}</h3>
+            <p class="account-description">${account.description}</p>
+            <div class="account-details">
+                <span class="detail">${account.details}</span>
+            </div>
+            <div class="purchase-metrics">
+                <span class="purchase-count">📊 ${Math.floor(Math.random() * 500)} people bought this week</span>
+                <span class="delivery-time">⚡ Delivered in 5 min</span>
+            </div>
+            <div class="price-section">
+                ${account.originalPrice ? `
+                    <p class="original-price">Was $${account.originalPrice.toFixed(2)}</p>
+                    <p class="savings">Save $${(account.originalPrice - account.price).toFixed(2)} (${Math.round((account.originalPrice - account.price) / account.originalPrice * 100)}%)</p>
+                ` : ''}
+                <p class="price">$${account.price.toFixed(2)}</p>
+            </div>
+            <div class="card-actions">
+                <button class="buy-button">View Details</button>
+                <input type="checkbox" class="compare-checkbox" title="Select for comparison">
+            </div>
+        </div>
+    `).join('');
+    
+    setupAccountCards();
+}
+
+// Watch for changes in localStorage (for admin updates)
+window.addEventListener('storage', function(e) {
+    if (e.key === 'adminAccounts') {
+        loadAccountsFromAdmin();
+    }
 });
 
 function initializeAll() {
