@@ -178,13 +178,14 @@
         select {
             width: 100%;
             padding: 18px 20px;
-            border: 2px solid var(--light);
+            border: 2px solid #d0d5dd;
             border-radius: 10px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-family: inherit;
             transition: all 0.3s ease;
-            line-height: 1.6;
-            background-color: #fff;
+            line-height: 1.8;
+            background-color: #ffffff;
+            color: #1f2937;
         }
 
         input[type="text"]:focus,
@@ -193,15 +194,16 @@
         textarea:focus,
         select:focus {
             outline: none;
-            border-color: var(--secondary);
-            box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2), inset 0 0 0 1px rgba(52, 152, 219, 0.1);
-            background-color: #f0f7ff;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background-color: #ffffff;
         }
 
         textarea {
             resize: vertical;
-            min-height: 180px;
+            min-height: 220px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1f2937;
         }
 
         @media (max-width: 768px) {
