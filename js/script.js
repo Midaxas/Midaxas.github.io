@@ -11,15 +11,26 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   // Copy email
   if(emailBtn){
-    emailBtn.addEventListener('click', async ()=>{
+    // ripple + copy
+    emailBtn.addEventListener('click', async (ev)=>{
+      const rect = emailBtn.getBoundingClientRect();
+      const r = document.createElement('span');
+      r.className = 'ripple';
+      const size = Math.max(rect.width, rect.height) * 1.2;
+      r.style.width = r.style.height = size + 'px';
+      r.style.left = (ev.clientX - rect.left - size/2) + 'px';
+      r.style.top = (ev.clientY - rect.top - size/2) + 'px';
+      emailBtn.appendChild(r);
+      requestAnimationFrame(()=>{ r.style.transform='scale(1)'; r.style.transition='transform 450ms cubic-bezier(.2,.9,.2,1),opacity 450ms'; r.style.opacity='0'; });
+      setTimeout(()=> r.remove(),600);
       try{
         await navigator.clipboard.writeText(EMAIL);
-        const original = emailBtn.textContent;
-        emailBtn.textContent = 'Copied!';
-        setTimeout(()=> emailBtn.textContent = original,1500);
+        const orig = emailBtn.querySelector('.label').textContent;
+        emailBtn.querySelector('.label').textContent = 'Copied!';
+        setTimeout(()=> emailBtn.querySelector('.label').textContent = orig,1500);
       }catch(e){
         window.location.href = `mailto:${EMAIL}`;
       }
-    })
+    });
   }
 });
