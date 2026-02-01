@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Edit Bio — Midaxas</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>
+      .editor{max-width:720px;margin:28px auto;padding:20px;background:rgba(255,255,255,0.02);border-radius:12px}
+      .field{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+      .field label{width:100px;color:var(--muted)}
+      .field input[type=text],.field input[type=email],.field textarea{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+      .links-list{margin:8px 0 16px;display:flex;flex-direction:column;gap:8px}
+      .links-list .row{display:flex;gap:8px}
+      .small{width:120px}
+      .actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+      .muted-note{color:var(--muted);font-size:0.9rem;margin-top:8px}
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <main class="editor">
+        <h2>Edit Bio</h2>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" />
+        </div>
+
+        <div class="field">
+          <label for="tag">Tag</label>
+          <input id="tag" type="text" placeholder="Developer · Researcher" />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="hi@example.com" />
+        </div>
+
+        <div class="field">
+          <label for="avatar">Avatar</label>
+          <input id="avatar" type="file" accept="image/*" />
+        </div>
+
+        <h3>Links</h3>
+        <div class="links-list" id="linksList"></div>
+        <div style="display:flex;gap:8px;margin-bottom:8px;">
+          <button id="addLink" class="btn">Add link</button>
+          <button id="clearConfig" class="ghost">Reset</button>
+        </div>
+
+        <div class="actions">
+          <button id="exportBtn" class="btn">Export JSON</button>
+          <button id="saveBtn" class="btn">Save</button>
+          <a id="preview" class="btn" href="/" target="_blank">Preview site</a>
+        </div>
+
+        <p class="muted-note">Saved config is stored in your browser localStorage. Use Export to save a JSON backup to commit to the repo if you want persistent hosting without localStorage.</p>
+      </main>
+    </div>
+
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
