@@ -1,0 +1,11 @@
+{
+  "name": "Midaxas",
+  "tag": "Developer · Researcher",
+  "email": "hi@example.com",
+  "avatar": "/favicon.svg",
+  "links": [
+    { "label": "GitHub", "href": "https://github.com/Midaxas" },
+    { "label": "Twitter", "href": "https://twitter.com/" },
+    { "label": "Projects", "href": "/" }
+  ]
+}
