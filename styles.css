@@ -5,26 +5,37 @@
 }
 
 :root {
-    --primary-color: #58cc02;
-    --primary-hover: #4caf02;
-    --primary-dark: #267d00;
-    --danger-color: #ff4b4b;
-    --success-color: #58cc02;
-    --warning-color: #ffc800;
-    --text-color: #3c3c3c;
-    --text-light: #777;
-    --bg-color: #f7f7f7;
-    --card-bg: #ffffff;
-    --border-color: #e5e5e5;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --primary-color: #61dafb;
+    --primary-hover: #4fc3dc;
+    --primary-dark: #21a1c4;
+    --secondary-color: #bb86fc;
+    --accent-color: #03dac6;
+    --danger-color: #cf6679;
+    --success-color: #03dac6;
+    --warning-color: #ffd60a;
+    --text-color: #e1e1e1;
+    --text-light: #a0a0a0;
+    --bg-color: #0d1117;
+    --bg-secondary: #161b22;
+    --card-bg: #1c2128;
+    --card-hover: #22272e;
+    --border-color: #30363d;
+    --code-bg: #0d1117;
+    --code-border: #21262d;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 4px 16px rgba(97, 218, 251, 0.2);
+    --glow: 0 0 20px rgba(97, 218, 251, 0.3);
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', 'Monaco', monospace, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text-color);
     background: var(--bg-color);
     min-height: 100vh;
+    background-image: 
+        radial-gradient(at 40% 20%, rgba(97, 218, 251, 0.05) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, rgba(187, 134, 252, 0.05) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, rgba(3, 218, 198, 0.05) 0px, transparent 50%);
 }
 
 /* App Container */
@@ -39,11 +50,13 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: white;
+    background: var(--card-bg);
     border-bottom: 2px solid var(--border-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 100;
+    backdrop-filter: blur(10px);
 }
 
 .logo-small {
@@ -120,10 +133,11 @@ body {
 }
 
 .progress-card {
-    background: white;
+    background: var(--card-bg);
     padding: 2rem;
     border-radius: 16px;
     box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
     max-width: 600px;
     margin: 0 auto;
 }
@@ -155,8 +169,14 @@ body {
 
 .lesson-category h2 {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     color: var(--text-color);
+}
+
+.category-desc {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
 }
 
 .lesson-cards {
@@ -166,19 +186,37 @@ body {
 }
 
 .lesson-card {
-    background: white;
+    background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: 16px;
     padding: 2rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.lesson-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(97, 218, 251, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.lesson-card:hover::before {
+    left: 100%;
 }
 
 .lesson-card:not(.locked):hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: var(--shadow-hover), var(--glow);
     border-color: var(--primary-color);
+    background: var(--card-hover);
 }
 
 .lesson-card.locked {
@@ -188,7 +226,8 @@ body {
 
 .lesson-card.completed {
     border-color: var(--success-color);
-    background: linear-gradient(135deg, #f0fff4 0%, white 100%);
+    background: linear-gradient(135deg, rgba(3, 218, 198, 0.1) 0%, var(--card-bg) 100%);
+    box-shadow: 0 0 20px rgba(3, 218, 198, 0.2);
 }
 
 .lesson-icon {
@@ -220,12 +259,13 @@ body {
 }
 
 .quit-btn {
-    background: transparent;
+    background: var(--bg-secondary);
     border: 2px solid var(--border-color);
     width: 46px;
     height: 46px;
     border-radius: 12px;
     font-size: 1.2rem;
+    color: var(--text-color);
     cursor: pointer;
     transition: all 0.2s;
     flex-shrink: 0;
@@ -257,10 +297,11 @@ body {
 }
 
 .question-container {
-    background: white;
+    background: var(--card-bg);
     padding: 3rem;
     border-radius: 16px;
     box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
     margin-bottom: 2rem;
 }
 
@@ -280,10 +321,11 @@ body {
     width: 100%;
     padding: 1.5rem;
     margin-bottom: 1rem;
-    background: white;
+    background: var(--bg-secondary);
     border: 2px solid var(--border-color);
     border-radius: 12px;
     font-size: 1.1rem;
+    color: var(--text-color);
     cursor: pointer;
     text-align: left;
     transition: all 0.2s;
@@ -291,30 +333,36 @@ body {
 }
 
 .choice-btn:hover {
-    background: #f7f7f7;
-    border-color: var(--text-light);
+    background: var(--card-hover);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(97, 218, 251, 0.2);
 }
 
 .choice-btn.selected {
-    background: #ddf4ff;
-    border-color: #1cb0f6;
+    background: rgba(97, 218, 251, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.3);
 }
 
 .choice-btn.correct {
-    background: #d7ffb8;
+    background: rgba(3, 218, 198, 0.2);
     border-color: var(--success-color);
+    box-shadow: 0 0 15px rgba(3, 218, 198, 0.3);
 }
 
 .choice-btn.incorrect {
-    background: #ffdfe0;
+    background: rgba(207, 102, 121, 0.2);
     border-color: var(--danger-color);
+    box-shadow: 0 0 15px rgba(207, 102, 121, 0.3);
 }
 
 .code-input {
     width: 100%;
     padding: 1rem;
-    font-family: 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
     font-size: 1rem;
+    background: var(--code-bg);
+    color: var(--text-color);
     border: 2px solid var(--border-color);
     border-radius: 8px;
     margin-top: 1rem;
@@ -322,13 +370,34 @@ body {
     min-height: 100px;
 }
 
+.code-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.3);
+}
+
 .code-display {
-    background: #f5f5f5;
+    background: var(--code-bg);
     padding: 1.5rem;
     border-radius: 8px;
-    font-family: 'Courier New', monospace;
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
     margin: 1rem 0;
+    border: 1px solid var(--code-border);
     border-left: 4px solid var(--primary-color);
+    color: #e1e1e1;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.code-display::before {
+    content: 'python';
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* Feedback */
@@ -347,15 +416,17 @@ body {
 }
 
 .answer-feedback.correct {
-    background: #d7ffb8;
-    color: var(--primary-dark);
+    background: rgba(3, 218, 198, 0.15);
+    color: var(--success-color);
     border: 2px solid var(--success-color);
+    box-shadow: 0 0 20px rgba(3, 218, 198, 0.2);
 }
 
 .answer-feedback.incorrect {
-    background: #ffdfe0;
-    color: #c00;
+    background: rgba(207, 102, 121, 0.15);
+    color: var(--danger-color);
     border: 2px solid var(--danger-color);
+    box-shadow: 0 0 20px rgba(207, 102, 121, 0.2);
 }
 
 /* Buttons */
@@ -380,6 +451,7 @@ body {
 .btn-primary:hover:not(:disabled) {
     background: var(--primary-hover);
     transform: scale(1.02);
+    box-shadow: var(--glow);
 }
 
 .btn-primary:disabled {
@@ -395,6 +467,7 @@ body {
 .btn-success:hover {
     background: var(--primary-hover);
     transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(3, 218, 198, 0.4);
 }
 
 .quiz-controls {
