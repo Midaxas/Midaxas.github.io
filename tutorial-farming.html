@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farming Guide - Hypixel Skyblock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">🌟 Moowre</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/#guides" class="nav-link">Guides</a></li>
+                <li><a href="/#tutorials" class="nav-link">Tutorials</a></li>
+                <li><a href="/#faq" class="nav-link">FAQ</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tutorial Content -->
+    <section class="tutorial-content">
+        <div class="tutorial-header">
+            <h1>Complete Farming Guide - Maximize Your Yields</h1>
+            <p class="tutorial-meta">🌾 Farming Mastery • ⏱️ 50 min read • 👥 Updated Feb 2026</p>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="tutorial-body">
+                <!-- Table of Contents -->
+                <div class="toc">
+                    <h3>📑 Quick Navigation</h3>
+                    <ul>
+                        <li><a href="#farming-basics">Farming Basics</a></li>
+                        <li><a href="#crop-types">Crop Types & Yields</a></li>
+                        <li><a href="#farm-setup">Farm Setup Layouts</a></li>
+                        <li><a href="#upgrades">Farming Upgrades</a></li>
+                        <li><a href="#optimization">Optimization Techniques</a></li>
+                        <li><a href="#profit-calc">Profit Calculator</a></li>
+                    </ul>
+                </div>
+
+                <section id="farming-basics" class="tutorial-section">
+                    <h2>🌱 Farming Basics</h2>
+                    <p>Farming is one of the most reliable and repeatable income sources in Skyblock. Unlike combat or mining, farming is completely predictable and scales with efficiency.</p>
+
+                    <h3>Required Materials</h3>
+                    <ul>
+                        <li><strong>Hoe:</strong> Any hoe works, but higher tiers work faster</li>
+                        <li><strong>Seeds:</strong> Purchase from NPC shop (25 coins per seed)</li>
+                        <li><strong>Water:</strong> Create hydrated farmland - place water adjacent to dirt/grass</li>
+                        <li><strong>Land:</strong> Cultivate accessible farm area</li>
+                    </ul>
+
+                    <h3>Farming Mechanics</h3>
+                    <div class="mechanics-box">
+                        <h4>Growth Stages</h4>
+                        <p>Each crop goes through 4 growth stages before harvest. Display progress with <code>/skyblock</code> menu!</p>
+                        <ul>
+                            <li><strong>Stage 1:</strong> Seedling (1-25% mature)</li>
+                            <li><strong>Stage 2:</strong> Young plant (26-50% mature)</li>
+                            <li><strong>Stage 3:</strong> Mature plant (51-75% mature)</li>
+                            <li><strong>Stage 4:</strong> Ready for harvest (76-100% mature)</li>
+                        </ul>
+
+                        <h4>Growth Speed Factors</h4>
+                        <ul>
+                            <li>Farming skill level (higher = faster growth)</li>
+                            <li>Crop type (different crops grow at different rates)</li>
+                            <li>Organic matter/fertilizer (boosts growth by 10-50%)</li>
+                            <li>Enchantments on hoe (Replenish, Green Thumb, etc.)</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="crop-types" class="tutorial-section">
+                    <h2>🌾 Crop Types & Yields</h2>
+
+                    <h3>Top Farming Crops (By Profitability)</h3>
+                    <table class="tutorial-table">
+                        <tr>
+                            <th>Crop</th>
+                            <th>Seed Cost</th>
+                            <th>Harvest Yield</th>
+                            <th>Sell Price</th>
+                            <th>Time/Cycle</th>
+                            <th>Profit (100 blocks)</th>
+                        </tr>
+                        <tr>
+                            <td>🌾 Wheat</td>
+                            <td>25 coins</td>
+                            <td>1.5 blocks</td>
+                            <td>40 coins</td>
+                            <td>45 min</td>
+                            <td>6,000 coins</td>
+                        </tr>
+                        <tr>
+                            <td>🥔 Potato</td>
+                            <td>25 coins</td>
+                            <td>1.5 blocks</td>
+                            <td>35 coins</td>
+                            <td>40 min</td>
+                            <td>5,000 coins</td>
+                        </tr>
+                        <tr>
+                            <td>🍋 Carrot</td>
+                            <td>25 coins</td>
+                            <td>1.5 blocks</td>
+                            <td>45 coins</td>
+                            <td>50 min</td>
+                            <td>6,500 coins</td>
+                        </tr>
+                        <tr>
+                            <td>🥕 Pumpkin</td>
+                            <td>50 coins</td>
+                            <td>1 block</td>
+                            <td>100 coins</td>
+                            <td>60 min</td>
+                            <td>5,000 coins</td>
+                        </tr>
+                        <tr>
+                            <td>🍉 Melon</td>
+                            <td>50 coins</td>
+                            <td>1 block</td>
+                            <td>110 coins</td>
+                            <td>65 min</td>
+                            <td>6,000 coins</td>
+                        </tr>
+                        <tr>
+                            <td>🌽 Corn</td>
+                            <td>50 coins</td>
+                            <td>1 block</td>
+                            <td>120 coins</td>
+                            <td>55 min</td>
+                            <td>7,000 coins</td>
+                        </tr>
+                        <tr>
+                            <td>🥬 Cactus</td>
+                            <td>40 coins</td>
+                            <td>2 blocks</td>
+                            <td>40 coins</td>
+                            <td>50 min</td>
+                            <td>6,000 coins</td>
+                        </tr>
+                        <tr>
+                            <td>🌻 Sugarcane</td>
+                            <td>25 coins</td>
+                            <td>1 block</td>
+                            <td>30 coins</td>
+                            <td>45 min</td>
+                            <td>500 coins</td>
+                        </tr>
+                    </table>
+
+                    <h3>💡 Key Insight</h3>
+                    <p><strong>Wheat and Carrot</strong> are the most profitable for beginners. They have fast growth times and excellent yield ratios!</p>
+                </section>
+
+                <section id="farm-setup" class="tutorial-section">
+                    <h2>🏗️ Farm Setup Layouts</h2>
+
+                    <h3>Beginner Farm (10x10)</h3>
+                    <p><strong>Space Required:</strong> 100 blocks | <strong>Setup Time:</strong> 30 minutes | <strong>Daily Income:</strong> 10-15k coins</p>
+                    <div class="code-block">
+                        <pre>
+W = Water
+F = Farmland
+. = Empty
+
+. . . . . . . . . .
+. F F F F F F F F .
+. F F F F F F F F .
+. F F F W F F F F .
+. F F F F F F F F .
+. F F F F F F F F .
+. F F F W F F F F .
+. F F F F F F F F .
+. F F F F F F F F .
+. . . . . . . . . .
+                        </pre>
+                    </div>
+
+                    <h3>Intermediate Farm (20x20)</h3>
+                    <p><strong>Space Required:</strong> 400 blocks | <strong>Daily Income:</strong> 40-60k coins</p>
+                    <ul>
+                        <li>Use the same pattern repeated</li>
+                        <li>Place water every 4 blocks horizontally and vertically</li>
+                        <li>Add hoppers to each water channel to auto-collect items</li>
+                        <li>Use composters to generate fertilizer automatically</li>
+                    </ul>
+
+                    <h3>Advanced Farm (Multiple Crop Rotation)</h3>
+                    <p><strong>Income:</strong> 100k+ coins per day with optimization</p>
+                    <ul>
+                        <li>Dedicate sections to different crops</li>
+                        <li>Stagger planting times for continuous harvests</li>
+                        <li>Use minions to handle crop collection</li>
+                        <li>Implement automatic selling systems</li>
+                    </ul>
+                </section>
+
+                <section id="upgrades" class="tutorial-section">
+                    <h2>🔧 Farming Upgrades & Enchantments</h2>
+
+                    <h3>Essential Hoe Enchantments</h3>
+                    <table class="tutorial-table">
+                        <tr>
+                            <th>Enchantment</th>
+                            <th>Effect</th>
+                            <th>Priority</th>
+                        </tr>
+                        <tr>
+                            <td>Replenish</td>
+                            <td>Auto-replant harvested crops (Best!)</td>
+                            <td>🔴 Critical</td>
+                        </tr>
+                        <tr>
+                            <td>Green Thumb</td>
+                            <td>50% chance to replant automatically</td>
+                            <td>🟡 Important</td>
+                        </tr>
+                        <tr>
+                            <td>Harvester I</td>
+                            <td>Collect crops from an AoE</td>
+                            <td>🟡 Important</td>
+                        </tr>
+                        <tr>
+                            <td>Spiked Hook</td>
+                            <td>Collect items from crops automatically</td>
+                            <td>🟢 Nice to Have</td>
+                        </tr>
+                        <tr>
+                            <td>Efficiency V</td>
+                            <td>Break blocks 32x faster</td>
+                            <td>🟡 Important</td>
+                        </tr>
+                    </table>
+
+                    <h3>Farm Infrastructure Upgrades</h3>
+                    <ul>
+                        <li><strong>Hoppers:</strong> Automatically collect items from water channels</li>
+                        <li><strong>Chests:</strong> Store harvested crops for bulk selling</li>
+                        <li><strong>Composters:</strong> Generate fertilizer from crops and leaves</li>
+                        <li><strong>Barrel:</strong> Store excess materials without taking inventory space</li>
+                        <li><strong>Item Frame Display:</strong> Track what's been harvested</li>
+                    </ul>
+
+                    <h3>Farming Skill Gear</h3>
+                    <p>Once you reach farming level 20+, unlock special farming items:</p>
+                    <ul>
+                        <li><strong>Green Thumb Gauntlets:</strong> Greatly increase farming speed</li>
+                        <li><strong>Farmer's Rod:</strong> Special fishing rod for farming</li>
+                        <li><strong>Eternal Farming Tools:</strong> Late-game farming gear</li>
+                    </ul>
+                </section>
+
+                <section id="optimization" class="tutorial-section">
+                    <h2>⚡ Advanced Optimization Techniques</h2>
+
+                    <h3>AFK Farming Setup</h3>
+                    <p>Create a setup where crops harvest automatically while you're offline!</p>
+                    <ol>
+                        <li>Place crops in organized rows</li>
+                        <li>Use hoppers under water channels to collect items</li>
+                        <li>Route hoppers to large storage barrel</li>
+                        <li>Equip hoe with Replenish enchantment</li>
+                        <li>Stand in one spot and let the farm work</li>
+                    </ol>
+
+                    <h3>Fertilizer System</h3>
+                    <p>Speed up growth by 10-50% with organic matter:</p>
+                    <ul>
+                        <li><strong>Create composters:</strong> 7 wooden slabs + 1 fence gate</li>
+                        <li><strong>Feed with plants:</strong> Sugarcane, wheat, leaves</li>
+                        <li><strong>Collect compost:</strong> Use right-click on composter</li>
+                        <li><strong>Apply to farmland:</strong> Right-click farmland with compost</li>
+                    </ul>
+
+                    <h3>Profit Maximization</h3>
+                    <ul>
+                        <li><strong>Bulk Selling:</strong> Sell 64+ items at once for better prices</li>
+                        <li><strong>Time Your Sales:</strong> Avoid market saturation times</li>
+                        <li><strong>Quality Crops:</strong> Higher farming skill = higher quality items</li>
+                        <li><strong>Double Crops:</strong> Use enchantments to occasionally harvest 2x</li>
+                    </ul>
+
+                    <h3>Space Efficiency</h3>
+                    <table class="tutorial-table">
+                        <tr>
+                            <th>Layout Type</th>
+                            <th>Space Used</th>
+                            <th>Daily Income</th>
+                            <th>Efficiency</th>
+                        </tr>
+                        <tr>
+                            <td>4x4 Grid</td>
+                            <td>16 blocks</td>
+                            <td>2-3k</td>
+                            <td>⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>10x10 Grid</td>
+                            <td>100 blocks</td>
+                            <td>15-20k</td>
+                            <td>⭐⭐⭐</td>
+                        </tr>
+                        <tr>
+                            <td>20x20 + Minions</td>
+                            <td>400 blocks</td>
+                            <td>60-80k</td>
+                            <td>⭐⭐⭐⭐⭐</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="profit-calc" class="tutorial-section">
+                    <h2>💰 Profit Calculator</h2>
+                    <p>Use this to estimate your daily farming income:</p>
+                    
+                    <div class="calculator">
+                        <h3>Simple Farming Profit Calculator</h3>
+                        <label>
+                            Farm Size (blocks):
+                            <input type="number" id="farmSize" value="100" min="1">
+                        </label>
+                        <label>
+                            Crop Type:
+                            <select id="cropType">
+                                <option value="wheat">Wheat (40 coins)</option>
+                                <option value="potato">Potato (35 coins)</option>
+                                <option value="carrot">Carrot (45 coins)</option>
+                                <option value="corn">Corn (120 coins)</option>
+                                <option value="melon">Melon (110 coins)</option>
+                            </select>
+                        </label>
+                        <label>
+                            Harvests per Day:
+                            <input type="number" id="harvests" value="2" min="1">
+                        </label>
+                        <button onclick="calculateProfit()" class="btn btn-primary">Calculate</button>
+                        <div id="result" style="margin-top: 1rem; padding: 1rem; background: rgba(139,92,246,0.2); border-radius: 10px; display: none;">
+                            <p id="resultText"></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tutorial-section tips-section">
+                    <h2>🌟 Pro Farming Tips</h2>
+                    <div class="tips-grid">
+                        <div class="tip">
+                            <h4>🔄 Replenish First</h4>
+                            <p>Save for Replenish enchantment ASAP. It's the most important upgrade.</p>
+                        </div>
+                        <div class="tip">
+                            <h4>💧 Water Placement</h4>
+                            <p>Place water every 4 blocks horizontally and vertically for full hydration.</p>
+                        </div>
+                        <div class="tip">
+                            <h4>📦 Batch Harvesting</h4>
+                            <p>Wait until all crops are mature, then harvest everything at once.</p>
+                        </div>
+                        <div class="tip">
+                            <h4>🌾 Crop Rotation</h4>
+                            <p>Alternate between crops to maximize profit and keep the grind fresh.</p>
+                        </div>
+                        <div class="tip">
+                            <h4>⛰️ Compost Boost</h4>
+                            <p>Using compost increases growth by 50%! Makes farms 1.5x faster.</p>
+                        </div>
+                        <div class="tip">
+                            <h4>👥 Co-op Benefits</h4>
+                            <p>Co-ops double your minion slots - set up minion farms alongside crops!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="tutorial-nav">
+                    <a href="/tutorial-beginner.html" class="btn btn-secondary">← Beginner Guide</a>
+                    <a href="tutorial-combat.html" class="btn btn-primary">Next: Combat Guide →</a>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="tutorial-sidebar">
+                <div class="sidebar-card">
+                    <h3>💰 Top 3 Crops</h3>
+                    <ol>
+                        <li><strong>Corn:</strong> 7k per 100 blocks</li>
+                        <li><strong>Carrot:</strong> 6.5k per 100</li>
+                        <li><strong>Wheat:</strong> 6k per 100</li>
+                    </ol>
+                </div>
+                <div class="sidebar-card">
+                    <h3>🎯 Farming Checklist</h3>
+                    <ul style="list-style: none;">
+                        <li>✓ 10x10 farm setup</li>
+                        <li>✓ Water channels</li>
+                        <li>✓ Seed storage</li>
+                        <li>✓ Composters</li>
+                        <li>✓ Replenish hoe</li>
+                    </ul>
+                </div>
+                <div class="sidebar-card">
+                    <h3>⚙️ Key Enchantments</h3>
+                    <ul>
+                        <li>Replenish</li>
+                        <li>Efficiency V</li>
+                        <li>Harvester I</li>
+                        <li>Green Thumb</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>&copy; 2026 Moowre. This is a fan-made guide and is not affiliated with Hypixel or Minecraft.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function calculateProfit() {
+            const farmSize = parseInt(document.getElementById('farmSize').value);
+            const cropType = document.getElementById('cropType').value;
+            const harvests = parseInt(document.getElementById('harvests').value);
+            
+            const crops = {
+                wheat: { yield: 1.5, price: 40 },
+                potato: { yield: 1.5, price: 35 },
+                carrot: { yield: 1.5, price: 45 },
+                corn: { yield: 1, price: 120 },
+                melon: { yield: 1, price: 110 }
+            };
+            
+            const crop = crops[cropType];
+            const dailyHarvest = farmSize * crop.yield * harvests;
+            const dailyProfit = dailyHarvest * crop.price;
+            
+            const resultDiv = document.getElementById('result');
+            const resultText = document.getElementById('resultText');
+            
+            resultText.innerHTML = `<strong>Daily Farm Income:</strong> ~${dailyProfit.toLocaleString()} coins<br>
+                                   <strong>Weekly Income:</strong> ~${(dailyProfit * 7).toLocaleString()} coins<br>
+                                   <strong>Monthly Income:</strong> ~${(dailyProfit * 30).toLocaleString()} coins`;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
