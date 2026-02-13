@@ -1,38 +1,17 @@
-/* ==================== Variables ==================== */
-:root {
-    --primary: #8B5CF6;
-    --primary-dark: #7C3AED;
-    --primary-light: #A78BFA;
-    --secondary: #EC4899;
-    --accent: #06B6D4;
-    --dark-bg: #0F172A;
-    --dark-card: #1E293B;
-    --dark-border: #334155;
-    --text-primary: #F1F5F9;
-    --text-secondary: #CBD5E1;
-    --success: #10B981;
-    --warning: #F59E0B;
-    --danger: #EF4444;
-}
-
-/* ==================== General Styles ==================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--dark-bg);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
+:root{--bg:#0f172a;--card:#0b1220;--accent:#7c3aed;--muted:#94a3b8;--text:#e6eef8}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;background:var(--bg);color:var(--text);line-height:1.5}
+.container{max-width:980px;margin:2rem auto;padding:1rem}
+.site-header{background:linear-gradient(90deg,#071129,#08142a);padding:1.25rem;border-bottom:4px solid rgba(255,255,255,0.03)}
+.site-header h1{margin:0 0 0.25rem;font-size:1.5rem}
+.site-header p{margin:0;color:var(--muted)}
+.guides-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.75rem;list-style:none;padding:0;margin:1rem 0}
+.guides-list a{display:block;padding:0.85rem 1rem;background:var(--card);border:1px solid rgba(255,255,255,0.03);color:var(--text);text-decoration:none;border-radius:8px}
+.site-footer{text-align:center;padding:1rem;color:var(--muted)}
+h2{color:var(--accent)}
+.page-content{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1rem;border-radius:8px}
+.source-list{margin-top:1rem}
+@media (max-width:600px){.site-header h1{font-size:1.2rem}}
 
 /* ==================== Navigation ==================== */
 .navbar {
@@ -1121,6 +1100,56 @@ body {
     padding: 2rem;
     border-radius: 15px;
     margin: 2rem 0;
+}
+
+/* ==================== Videos Grid ==================== */
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.video-card {
+    background: var(--dark-card);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid var(--dark-border);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card:hover {
+    border-color: var(--secondary);
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2);
+    transform: translateY(-5px);
+}
+
+.video-card h4 {
+    color: var(--secondary);
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.video-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex: 1;
+}
+
+.video-creator {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 1rem 0 0.5rem 0 !important;
+}
+
+.btn-small {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+    align-self: flex-start;
 }
 
 /* ==================== Tutorial Responsive ==================== */
