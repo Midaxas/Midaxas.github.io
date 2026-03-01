@@ -9,15 +9,18 @@ const readButton = document.getElementById('read-metadata-btn');
 const applyEditsButton = document.getElementById('apply-edits-btn');
 const removeMetadataButton = document.getElementById('remove-metadata-btn');
 
+const exifrLib = window.exifr;
+const piexifLib = window.piexif;
+
 const EDITABLE_FIELDS = [
-    { key: 'ImageDescription', ifd: '0th', tag: piexif.ImageIFD.ImageDescription, label: 'Description' },
-    { key: 'Artist', ifd: '0th', tag: piexif.ImageIFD.Artist, label: 'Artist' },
-    { key: 'Copyright', ifd: '0th', tag: piexif.ImageIFD.Copyright, label: 'Copyright' },
-    { key: 'Make', ifd: '0th', tag: piexif.ImageIFD.Make, label: 'Camera Make' },
-    { key: 'Model', ifd: '0th', tag: piexif.ImageIFD.Model, label: 'Camera Model' },
-    { key: 'Software', ifd: '0th', tag: piexif.ImageIFD.Software, label: 'Software' },
-    { key: 'DateTimeOriginal', ifd: 'Exif', tag: piexif.ExifIFD.DateTimeOriginal, label: 'Date Time Original (YYYY:MM:DD HH:MM:SS)' },
-    { key: 'LensModel', ifd: 'Exif', tag: piexif.ExifIFD.LensModel, label: 'Lens Model' }
+    { key: 'ImageDescription', ifd: '0th', tag: piexifLib?.ImageIFD?.ImageDescription ?? 270, label: 'Description' },
+    { key: 'Artist', ifd: '0th', tag: piexifLib?.ImageIFD?.Artist ?? 315, label: 'Artist' },
+    { key: 'Copyright', ifd: '0th', tag: piexifLib?.ImageIFD?.Copyright ?? 33432, label: 'Copyright' },
+    { key: 'Make', ifd: '0th', tag: piexifLib?.ImageIFD?.Make ?? 271, label: 'Camera Make' },
+    { key: 'Model', ifd: '0th', tag: piexifLib?.ImageIFD?.Model ?? 272, label: 'Camera Model' },
+    { key: 'Software', ifd: '0th', tag: piexifLib?.ImageIFD?.Software ?? 305, label: 'Software' },
+    { key: 'DateTimeOriginal', ifd: 'Exif', tag: piexifLib?.ExifIFD?.DateTimeOriginal ?? 36867, label: 'Date Time Original (YYYY:MM:DD HH:MM:SS)' },
+    { key: 'LensModel', ifd: 'Exif', tag: piexifLib?.ExifIFD?.LensModel ?? 42036, label: 'Lens Model' }
 ];
 
 let currentFile = null;
@@ -91,10 +94,15 @@ async function readMetadata() {
         return;
     }
 
+    if (!exifrLib) {
+        setStatus('Metadata reader failed to load. Refresh the page and try again.', true);
+        return;
+    }
+
     setStatus('Reading metadata...');
 
     try {
-        const metadata = await exifr.parse(currentFile, true);
+        const metadata = await exifrLib.parse(currentFile, true);
         metadataOutput.textContent = metadata
             ? JSON.stringify(metadata, null, 2)
             : 'No metadata found in this file.';
@@ -119,8 +127,13 @@ function applyEditsAndDownload() {
         return;
     }
 
+    if (!piexifLib) {
+        setStatus('Metadata editor failed to load. Refresh the page and try again.', true);
+        return;
+    }
+
     try {
-        const exif = piexif.load(currentDataUrl);
+        const exif = piexifLib.load(currentDataUrl);
         const inputs = editor.querySelectorAll('input');
 
         inputs.forEach((input) => {
@@ -135,8 +148,8 @@ function applyEditsAndDownload() {
             }
         });
 
-        const exifBytes = piexif.dump(exif);
-        const output = piexif.insert(exifBytes, currentDataUrl);
+        const exifBytes = piexifLib.dump(exif);
+        const output = piexifLib.insert(exifBytes, currentDataUrl);
         downloadDataUrl(output, `${baseName(currentFile.name)}-edited.jpg`);
         setStatus('Edited image downloaded.');
     } catch (error) {
@@ -155,8 +168,13 @@ function removeMetadataAndDownload() {
         return;
     }
 
+    if (!piexifLib) {
+        setStatus('Metadata remover failed to load. Refresh the page and try again.', true);
+        return;
+    }
+
     try {
-        const cleaned = piexif.remove(currentDataUrl);
+        const cleaned = piexifLib.remove(currentDataUrl);
         downloadDataUrl(cleaned, `${baseName(currentFile.name)}-clean.jpg`);
         setStatus('Metadata removed and cleaned image downloaded.');
     } catch (error) {
@@ -181,6 +199,11 @@ photoInput.addEventListener('change', async (event) => {
         return;
     }
 
+    if (!file.type.startsWith('image/')) {
+        setStatus('Please select a valid image file.', true);
+        return;
+    }
+
     fileNameLabel.textContent = `${file.name} (${Math.round(file.size / 1024)} KB)`;
     setStatus('Loading image...');
 
@@ -197,8 +220,10 @@ photoInput.addEventListener('change', async (event) => {
         if (!isJpeg(file)) {
             setStatus('Image loaded. Read works for many formats; edit/remove are enabled for JPEG only.');
         } else {
-            setStatus('Image loaded. Click "Read Metadata" to begin.');
+            setStatus('Image loaded. Reading metadata...');
         }
+
+        await readMetadata();
     } catch (error) {
         setStatus(`Failed to load file: ${error.message}`, true);
     }
