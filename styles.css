@@ -254,75 +254,38 @@ p {
     margin-bottom: 1rem;
 }
 
-.portfolio-shell {
-    overflow: hidden;
-}
-
-.shell-topbar {
-    min-height: 48px;
-    background: rgba(15, 16, 35, 0.9);
-    border-bottom: 1px solid rgba(127, 140, 255, 0.25);
-    padding: 0 1rem;
+.project-card {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #737bc4;
+.project-card .btn {
+    width: fit-content;
+    margin-top: auto;
 }
 
-.shell-topbar p {
-    margin-left: 0.45rem;
-    color: #9ea2cf;
-    font-size: 0.86rem;
-}
-
-.portfolio-inner {
+.project-page {
+    min-height: 100vh;
     display: grid;
-    grid-template-columns: 200px 1fr;
-    min-height: 300px;
+    align-content: center;
+    padding: 2rem 0;
 }
 
-.portfolio-tabs {
-    border-right: 1px solid rgba(127, 140, 255, 0.2);
-    display: grid;
-    align-content: start;
-    gap: 0.4rem;
-    padding: 1rem 0.7rem;
-    background: rgba(18, 20, 44, 0.7);
+.project-page .card {
+    max-width: 760px;
+    margin: 0 auto;
 }
 
-.tab-btn {
-    background: transparent;
-    color: var(--text-soft);
-    border: 1px solid rgba(127, 140, 255, 0.2);
-    border-radius: 8px;
-    padding: 0.62rem 0.68rem;
-    text-align: left;
-    cursor: pointer;
+.project-page .eyebrow {
+    margin-bottom: 0.5rem;
 }
 
-.tab-btn:hover,
-.tab-btn.active {
-    color: var(--text);
-    border-color: rgba(127, 140, 255, 0.5);
-    background: rgba(127, 140, 255, 0.12);
-}
-
-.portfolio-view {
-    padding: 1.2rem;
-}
-
-.portfolio-view ul {
-    margin: 0.8rem 0 1rem;
-    list-style-position: inside;
-    color: var(--text-soft);
-    display: grid;
-    gap: 0.26rem;
+.project-page .actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
 }
 
 .contact-box {
@@ -362,16 +325,9 @@ p {
     .hero-grid,
     .three-col,
     .timeline,
-    .portfolio-inner,
     .contact-box {
         grid-template-columns: 1fr;
         display: grid;
-    }
-
-    .portfolio-tabs {
-        border-right: 0;
-        border-bottom: 1px solid rgba(127, 140, 255, 0.2);
-        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     .contact-actions {
@@ -404,7 +360,4 @@ p {
         justify-content: flex-start;
     }
 
-    .portfolio-tabs {
-        grid-template-columns: 1fr;
-    }
 }

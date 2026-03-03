@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260303-1">
+    <link rel="stylesheet" href="styles.css?v=20260303-2">
 </head>
 <body>
     <header class="site-header">
@@ -127,36 +127,26 @@
         <section id="portfolio" class="section alt">
             <div class="container">
                 <div class="portfolio-head">
-                    <h2>Website in Website — Portfolio Preview</h2>
-                    <p>This is a temporary in-site portfolio placeholder. Final live projects will replace these cards.</p>
+                    <h2>Portfolio Projects</h2>
+                    <p>Each portfolio entry opens as its own page on this domain. These are placeholder project pages for now.</p>
                 </div>
 
-                <div class="portfolio-shell" role="region" aria-label="Embedded portfolio placeholder">
-                    <div class="shell-topbar">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <p>moowre.dev/portfolio-preview</p>
-                    </div>
-
-                    <div class="portfolio-inner">
-                        <aside class="portfolio-tabs" aria-label="Portfolio project selector">
-                            <button class="tab-btn active" data-project="0">Project A</button>
-                            <button class="tab-btn" data-project="1">Project B</button>
-                            <button class="tab-btn" data-project="2">Project C</button>
-                        </aside>
-
-                        <article class="portfolio-view" id="portfolio-view" aria-live="polite">
-                            <h3>Starter Portfolio Project</h3>
-                            <p>Placeholder case study block. Replace this with a real website project summary, screenshots, and outcomes.</p>
-                            <ul>
-                                <li>Status: Placeholder</li>
-                                <li>Type: Static Website</li>
-                                <li>Stack: HTML • CSS • JavaScript</li>
-                            </ul>
-                            <a class="btn btn-primary disabled" href="#" aria-disabled="true">Demo Coming Soon</a>
-                        </article>
-                    </div>
+                <div class="cards three-col" role="list" aria-label="Portfolio projects">
+                    <article class="card project-card" role="listitem">
+                        <h3>Project A</h3>
+                        <p>Static website case study placeholder for your first published portfolio item.</p>
+                        <a class="btn btn-primary" href="/project-a/">View Project A</a>
+                    </article>
+                    <article class="card project-card" role="listitem">
+                        <h3>Project B</h3>
+                        <p>Landing page placeholder ready to be replaced with a real client or studio build.</p>
+                        <a class="btn btn-primary" href="/project-b/">View Project B</a>
+                    </article>
+                    <article class="card project-card" role="listitem">
+                        <h3>Project C</h3>
+                        <p>Multi-section website placeholder with room for screenshots, scope, and results.</p>
+                        <a class="btn btn-primary" href="/project-c/">View Project C</a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -182,6 +172,6 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20260303-1"></script>
+    <script src="script.js?v=20260303-2"></script>
 </body>
 </html>
