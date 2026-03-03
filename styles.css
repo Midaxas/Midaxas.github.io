@@ -231,6 +231,10 @@ p {
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .card {
     padding: 1rem;
 }
@@ -324,6 +328,7 @@ p {
 @media (max-width: 940px) {
     .hero-grid,
     .three-col,
+    .two-col,
     .timeline,
     .contact-box {
         grid-template-columns: 1fr;
