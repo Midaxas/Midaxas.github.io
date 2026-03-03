@@ -3,40 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Moowre portfolio project C placeholder page.">
-    <title>Project C — Moowre</title>
+    <meta name="description" content="FitTrack Coach — fitness coaching website.">
+    <title>FitTrack Coach</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css?v=20260303-2">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main class="project-page">
-        <section class="container">
-            <article class="card">
-                <p class="eyebrow">Portfolio Placeholder</p>
-                <h1>Project C</h1>
-                <p>This is a dedicated route page for Project C. Replace this text with an actual case study once your project is live.</p>
-                <ul class="stack">
-                    <li>Status: Placeholder</li>
-                    <li>Type: Multi-section Website</li>
-                    <li>Route: /project-c/</li>
-                </ul>
-                <div class="actions">
-                    <a class="btn btn-ghost" href="/">Back to Home</a>
-                    <a class="btn btn-primary disabled" href="#" aria-disabled="true">Live Demo Coming Soon</a>
-                </div>
-            </article>
+    <header class="topbar">
+        <a href="/" class="home-link">← Back to Moowre</a>
+        <p>FitTrack Coach</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">Project C</p>
+            <h1>FitTrack Coach</h1>
+            <p>Personal trainer website with coaching plans, success stories, and a focused FAQ section.</p>
+        </section>
+
+        <section class="section">
+            <h2>Programs</h2>
+            <div class="plans">
+                <article class="plan"><h3>Starter</h3><p>4-week plan with habit check-ins.</p><strong>€79</strong></article>
+                <article class="plan"><h3>Performance</h3><p>8-week strength and cardio split.</p><strong>€149</strong></article>
+                <article class="plan"><h3>Transformation</h3><p>12-week personalized coaching and nutrition guidance.</p><strong>€229</strong></article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Client Transformations</h2>
+            <div class="stories">
+                <article class="story"><p>“Lost 8kg in 10 weeks while building consistent routines.”</p><span>— Mantas</span></article>
+                <article class="story"><p>“Improved strength and energy with a realistic plan.”</p><span>— Ema</span></article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <button class="faq-q" type="button">Do I need gym experience?</button>
+                <p class="faq-a">No. Programs are adjusted for beginners through advanced levels.</p>
+            </div>
+            <div class="faq-item">
+                <button class="faq-q" type="button">Is meal planning included?</button>
+                <p class="faq-a">Yes, each plan includes practical nutrition guidance and adjustments.</p>
+            </div>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-wrap">
-            <p>© <span id="year"></span> Moowre. Built by Midaxas.</p>
-            <a href="/">Home</a>
-        </div>
+    <footer>
+        <p>© <span id="year"></span> FitTrack Coach</p>
     </footer>
 
-    <script src="../script.js?v=20260303-2"></script>
+    <script src="script.js"></script>
 </body>
 </html>

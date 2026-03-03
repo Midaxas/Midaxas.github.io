@@ -3,40 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Moowre portfolio project A placeholder page.">
-    <title>Project A — Moowre</title>
+    <meta name="description" content="Luna Lens Studio — modern photography portfolio website.">
+    <title>Luna Lens Studio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css?v=20260303-2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main class="project-page">
-        <section class="container">
-            <article class="card">
-                <p class="eyebrow">Portfolio Placeholder</p>
-                <h1>Project A</h1>
-                <p>This is a dedicated route page for Project A. Replace this placeholder with the real project overview, challenge, process, and final result.</p>
-                <ul class="stack">
-                    <li>Status: Placeholder</li>
-                    <li>Type: Static Website</li>
-                    <li>Route: /project-a/</li>
-                </ul>
-                <div class="actions">
-                    <a class="btn btn-ghost" href="/">Back to Home</a>
-                    <a class="btn btn-primary disabled" href="#" aria-disabled="true">Live Demo Coming Soon</a>
-                </div>
-            </article>
+    <header class="topbar">
+        <a href="/" class="home-link">← Back to Moowre</a>
+        <p>Luna Lens Studio</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">Project A</p>
+            <h1>Luna Lens Studio</h1>
+            <p>Photography portfolio website for weddings, branding sessions, and editorial stories.</p>
+            <a class="btn" href="#gallery">View Gallery</a>
+        </section>
+
+        <section class="section">
+            <h2>Services</h2>
+            <div class="grid">
+                <article class="card"><h3>Weddings</h3><p>Natural documentary photography for full wedding days.</p></article>
+                <article class="card"><h3>Brand Sessions</h3><p>Clean visual sets for founders and personal brands.</p></article>
+                <article class="card"><h3>Editorial</h3><p>Story-driven photo direction with polished post-processing.</p></article>
+            </div>
+        </section>
+
+        <section class="section" id="gallery">
+            <h2>Featured Shoots</h2>
+            <div class="gallery">
+                <div class="shot">Golden Hour Wedding</div>
+                <div class="shot">Studio Brand Portrait</div>
+                <div class="shot">City Editorial Story</div>
+                <div class="shot">Coastal Couple Session</div>
+            </div>
+        </section>
+
+        <section class="section quote-wrap">
+            <h2>Client Words</h2>
+            <blockquote id="quote">“The photos felt timeless and emotional — exactly what we wanted.”</blockquote>
+            <button id="next-quote" class="btn ghost" type="button">Next Testimonial</button>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-wrap">
-            <p>© <span id="year"></span> Moowre. Built by Midaxas.</p>
-            <a href="/">Home</a>
-        </div>
+    <footer>
+        <p>© <span id="year"></span> Luna Lens Studio</p>
     </footer>
 
-    <script src="../script.js?v=20260303-2"></script>
+    <script src="script.js"></script>
 </body>
 </html>

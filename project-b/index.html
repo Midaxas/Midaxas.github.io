@@ -3,40 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Moowre portfolio project B placeholder page.">
-    <title>Project B — Moowre</title>
+    <meta name="description" content="Brew Haven Coffee — café landing page.">
+    <title>Brew Haven Coffee</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css?v=20260303-2">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main class="project-page">
-        <section class="container">
+    <header class="topbar">
+        <a href="/" class="home-link">← Back to Moowre</a>
+        <p>Brew Haven Coffee</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <p class="eyebrow">Project B</p>
+            <h1>Brew Haven Coffee</h1>
+            <p>Warm neighborhood café landing page focused on handcrafted drinks and cozy atmosphere.</p>
+        </section>
+
+        <section class="section">
+            <h2>Menu Highlights</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all" type="button">All</button>
+                <button class="filter-btn" data-filter="coffee" type="button">Coffee</button>
+                <button class="filter-btn" data-filter="snack" type="button">Snacks</button>
+            </div>
+            <div class="menu-grid" id="menu-grid">
+                <article class="menu-item" data-type="coffee"><h3>Espresso</h3><p>Strong and smooth single-origin shot.</p></article>
+                <article class="menu-item" data-type="coffee"><h3>Vanilla Latte</h3><p>Signature latte with house vanilla cream.</p></article>
+                <article class="menu-item" data-type="snack"><h3>Butter Croissant</h3><p>Freshly baked every morning.</p></article>
+                <article class="menu-item" data-type="snack"><h3>Banana Bread</h3><p>Moist loaf with cinnamon crumble topping.</p></article>
+            </div>
+        </section>
+
+        <section class="section two-col">
             <article class="card">
-                <p class="eyebrow">Portfolio Placeholder</p>
-                <h1>Project B</h1>
-                <p>This is a dedicated route page for Project B. Swap in your real project details and deliverables when this project is ready.</p>
-                <ul class="stack">
-                    <li>Status: Placeholder</li>
-                    <li>Type: Landing Page</li>
-                    <li>Route: /project-b/</li>
-                </ul>
-                <div class="actions">
-                    <a class="btn btn-ghost" href="/">Back to Home</a>
-                    <a class="btn btn-primary disabled" href="#" aria-disabled="true">Live Demo Coming Soon</a>
-                </div>
+                <h2>Location</h2>
+                <p>21 Oak Street, Downtown</p>
+                <p>Mon–Fri: 7:00–18:00</p>
+                <p>Sat–Sun: 8:00–17:00</p>
+            </article>
+            <article class="card">
+                <h2>Customer Note</h2>
+                <p>“Best cappuccino in town and an amazing place to work for a few hours.”</p>
             </article>
         </section>
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-wrap">
-            <p>© <span id="year"></span> Moowre. Built by Midaxas.</p>
-            <a href="/">Home</a>
-        </div>
+    <footer>
+        <p>© <span id="year"></span> Brew Haven Coffee</p>
     </footer>
 
-    <script src="../script.js?v=20260303-2"></script>
+    <script src="script.js"></script>
 </body>
 </html>
