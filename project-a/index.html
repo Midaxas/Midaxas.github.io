@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
     <header class="topbar">
@@ -20,8 +20,17 @@
         <section class="hero">
             <p class="eyebrow">Project A</p>
             <h1>Luna Lens Studio</h1>
-            <p>Photography portfolio website for weddings, branding sessions, and editorial stories.</p>
-            <a class="btn" href="#gallery">View Gallery</a>
+            <p>Fine-art photography portfolio for weddings, editorials, and personal brands with a cinematic visual style.</p>
+            <div class="hero-actions">
+                <a class="btn" href="#gallery">Explore Gallery</a>
+                <a class="btn ghost" href="#book">Book Session</a>
+            </div>
+        </section>
+
+        <section class="metrics">
+            <article><strong>120+</strong><span>Sessions Captured</span></article>
+            <article><strong>18</strong><span>Awards & Features</span></article>
+            <article><strong>6 yrs</strong><span>Industry Experience</span></article>
         </section>
 
         <section class="section">
@@ -35,11 +44,19 @@
 
         <section class="section" id="gallery">
             <h2>Featured Shoots</h2>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all" type="button">All</button>
+                <button class="filter-btn" data-filter="wedding" type="button">Weddings</button>
+                <button class="filter-btn" data-filter="brand" type="button">Brand</button>
+                <button class="filter-btn" data-filter="editorial" type="button">Editorial</button>
+            </div>
             <div class="gallery">
-                <div class="shot">Golden Hour Wedding</div>
-                <div class="shot">Studio Brand Portrait</div>
-                <div class="shot">City Editorial Story</div>
-                <div class="shot">Coastal Couple Session</div>
+                <div class="shot" data-type="wedding">Golden Hour Wedding</div>
+                <div class="shot" data-type="brand">Studio Brand Portrait</div>
+                <div class="shot" data-type="editorial">City Editorial Story</div>
+                <div class="shot" data-type="wedding">Coastal Couple Session</div>
+                <div class="shot" data-type="brand">Founder Personal Branding</div>
+                <div class="shot" data-type="editorial">Monochrome Fashion Set</div>
             </div>
         </section>
 
@@ -48,12 +65,35 @@
             <blockquote id="quote">“The photos felt timeless and emotional — exactly what we wanted.”</blockquote>
             <button id="next-quote" class="btn ghost" type="button">Next Testimonial</button>
         </section>
+
+        <section id="book" class="section">
+            <h2>Book a Session</h2>
+            <form class="booking-form">
+                <label>
+                    Your Name
+                    <input type="text" placeholder="Alex Morgan" required>
+                </label>
+                <label>
+                    Session Type
+                    <select>
+                        <option>Wedding</option>
+                        <option>Brand</option>
+                        <option>Editorial</option>
+                    </select>
+                </label>
+                <label class="full">
+                    Notes
+                    <textarea rows="4" placeholder="Tell us your preferred date and vision..."></textarea>
+                </label>
+                <button class="btn" type="button">Send Inquiry</button>
+            </form>
+        </section>
     </main>
 
     <footer>
         <p>© <span id="year"></span> Luna Lens Studio</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>

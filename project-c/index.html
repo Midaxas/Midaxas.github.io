@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
     <header class="topbar">
@@ -21,6 +21,7 @@
             <p class="eyebrow">Project C</p>
             <h1>FitTrack Coach</h1>
             <p>Personal trainer website with coaching plans, success stories, and a focused FAQ section.</p>
+            <a class="cta" href="#calculator">Try BMI Calculator</a>
         </section>
 
         <section class="section">
@@ -35,8 +36,24 @@
         <section class="section">
             <h2>Client Transformations</h2>
             <div class="stories">
-                <article class="story"><p>“Lost 8kg in 10 weeks while building consistent routines.”</p><span>— Mantas</span></article>
-                <article class="story"><p>“Improved strength and energy with a realistic plan.”</p><span>— Ema</span></article>
+                <article class="story"><p>“Lost 8kg in 10 weeks while building consistent routines.”</p><span>— Mantas</span><strong>Weight Goal Achieved</strong></article>
+                <article class="story"><p>“Improved strength and energy with a realistic plan.”</p><span>— Ema</span><strong>Consistency Streak: 74 days</strong></article>
+            </div>
+        </section>
+
+        <section class="section" id="calculator">
+            <h2>BMI Calculator</h2>
+            <div class="calculator">
+                <label>
+                    Height (cm)
+                    <input id="height" type="number" min="120" max="230" value="175">
+                </label>
+                <label>
+                    Weight (kg)
+                    <input id="weight" type="number" min="35" max="220" value="72">
+                </label>
+                <button id="calc-bmi" class="cta" type="button">Calculate</button>
+                <p id="bmi-result" class="result">BMI: 23.5 — Normal range</p>
             </div>
         </section>
 
@@ -57,6 +74,6 @@
         <p>© <span id="year"></span> FitTrack Coach</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>

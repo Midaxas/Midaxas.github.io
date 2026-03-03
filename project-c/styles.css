@@ -6,7 +6,7 @@
 
 body {
     font-family: Inter, system-ui, sans-serif;
-    background: #0b1a1a;
+    background: radial-gradient(circle at top right, #17413c 0%, #0b1a1a 45%, #081111 100%);
     color: #e8fffb;
     line-height: 1.6;
 }
@@ -32,6 +32,19 @@ footer {
 
 .hero {
     padding: 2.8rem 0 2rem;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: #84f5e4;
+    color: #0b201f;
+    font-weight: 700;
+    padding: 0.62rem 0.95rem;
+    cursor: pointer;
 }
 
 .eyebrow {
@@ -71,6 +84,54 @@ h1 {
     background: #123131;
 }
 
+.story {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.story strong {
+    color: #98fff1;
+    font-size: 0.9rem;
+}
+
+.calculator {
+    border: 1px solid #2a7067;
+    border-radius: 12px;
+    background: #123131;
+    padding: 1rem;
+    display: grid;
+    gap: 0.7rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.calculator label {
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+}
+
+.calculator input {
+    width: 100%;
+    border: 1px solid #317b72;
+    border-radius: 8px;
+    background: #0f2b2a;
+    color: #e8fffb;
+    padding: 0.55rem 0.65rem;
+    font: inherit;
+}
+
+.calculator .cta,
+.result {
+    grid-column: 1 / -1;
+}
+
+.result {
+    border: 1px dashed #3e9b90;
+    border-radius: 9px;
+    padding: 0.6rem 0.7rem;
+    color: #c5f5ee;
+}
+
 .plan strong {
     display: inline-block;
     margin-top: 0.65rem;
@@ -108,7 +169,8 @@ footer {
 
 @media (max-width: 860px) {
     .plans,
-    .stories {
+    .stories,
+    .calculator {
         grid-template-columns: 1fr;
     }
 }

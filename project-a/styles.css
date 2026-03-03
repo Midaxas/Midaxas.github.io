@@ -6,7 +6,7 @@
 
 body {
     font-family: Inter, system-ui, sans-serif;
-    background: #0e1022;
+    background: radial-gradient(circle at top right, #1d2150 0%, #0e1022 45%, #090b19 100%);
     color: #eef0ff;
     line-height: 1.6;
 }
@@ -31,7 +31,7 @@ footer {
 }
 
 .hero {
-    padding: 3rem 0 2rem;
+    padding: 3rem 0 1.4rem;
 }
 
 .eyebrow {
@@ -52,6 +52,37 @@ h2 {
     margin-bottom: 0.9rem;
 }
 
+.hero-actions {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 0.3rem 0 1.2rem;
+}
+
+.metrics article {
+    border: 1px solid #3a4188;
+    background: #161a39;
+    border-radius: 12px;
+    padding: 0.8rem;
+    display: grid;
+    gap: 0.2rem;
+}
+
+.metrics strong {
+    font-size: 1.2rem;
+}
+
+.metrics span {
+    color: #c6ccf2;
+    font-size: 0.88rem;
+}
+
 .section {
     padding: 2rem 0;
 }
@@ -61,6 +92,28 @@ h2 {
     display: grid;
     gap: 0.8rem;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.filters {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.9rem;
+}
+
+.filter-btn {
+    border: 1px solid #4e56a8;
+    background: #191d3f;
+    color: #dbe1ff;
+    border-radius: 8px;
+    padding: 0.45rem 0.75rem;
+    cursor: pointer;
+}
+
+.filter-btn.active {
+    background: #9ea7ff;
+    color: #151834;
+    border-color: #9ea7ff;
 }
 
 .card,
@@ -73,14 +126,15 @@ blockquote {
 }
 
 .gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .shot {
-    min-height: 110px;
+    min-height: 130px;
     display: grid;
     place-items: center;
     font-weight: 600;
+    text-align: center;
 }
 
 .btn {
@@ -102,6 +156,34 @@ blockquote {
     border: 1px solid #5761ba;
 }
 
+.booking-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+
+.booking-form label {
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+}
+
+.booking-form .full {
+    grid-column: 1 / -1;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    border: 1px solid #4a4f90;
+    background: #171b3b;
+    color: #eef0ff;
+    border-radius: 9px;
+    padding: 0.6rem 0.7rem;
+    font: inherit;
+}
+
 .quote-wrap {
     display: grid;
     gap: 0.8rem;
@@ -114,7 +196,9 @@ footer {
 }
 
 @media (max-width: 800px) {
+    .metrics,
     .grid,
+    .booking-form,
     .gallery {
         grid-template-columns: 1fr;
     }

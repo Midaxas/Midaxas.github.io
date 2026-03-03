@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
     <header class="topbar">
@@ -21,9 +21,13 @@
             <p class="eyebrow">Project B</p>
             <h1>Brew Haven Coffee</h1>
             <p>Warm neighborhood café landing page focused on handcrafted drinks and cozy atmosphere.</p>
+            <div class="hero-actions">
+                <a class="cta" href="#menu">See Menu</a>
+                <a class="cta ghost" href="#visit">Visit Us</a>
+            </div>
         </section>
 
-        <section class="section">
+        <section id="menu" class="section">
             <h2>Menu Highlights</h2>
             <div class="filters">
                 <button class="filter-btn active" data-filter="all" type="button">All</button>
@@ -31,14 +35,16 @@
                 <button class="filter-btn" data-filter="snack" type="button">Snacks</button>
             </div>
             <div class="menu-grid" id="menu-grid">
-                <article class="menu-item" data-type="coffee"><h3>Espresso</h3><p>Strong and smooth single-origin shot.</p></article>
-                <article class="menu-item" data-type="coffee"><h3>Vanilla Latte</h3><p>Signature latte with house vanilla cream.</p></article>
-                <article class="menu-item" data-type="snack"><h3>Butter Croissant</h3><p>Freshly baked every morning.</p></article>
-                <article class="menu-item" data-type="snack"><h3>Banana Bread</h3><p>Moist loaf with cinnamon crumble topping.</p></article>
+                <article class="menu-item" data-type="coffee"><h3>Espresso</h3><p>Strong and smooth single-origin shot.</p><strong>€2.60</strong></article>
+                <article class="menu-item" data-type="coffee"><h3>Vanilla Latte</h3><p>Signature latte with house vanilla cream.</p><strong>€4.20</strong></article>
+                <article class="menu-item" data-type="coffee"><h3>Cold Brew</h3><p>Slow-steeped for a soft and bold finish.</p><strong>€3.80</strong></article>
+                <article class="menu-item" data-type="snack"><h3>Butter Croissant</h3><p>Freshly baked every morning.</p><strong>€2.90</strong></article>
+                <article class="menu-item" data-type="snack"><h3>Banana Bread</h3><p>Moist loaf with cinnamon crumble topping.</p><strong>€3.10</strong></article>
+                <article class="menu-item" data-type="snack"><h3>Berry Tart</h3><p>Seasonal berries with creamy filling.</p><strong>€3.90</strong></article>
             </div>
         </section>
 
-        <section class="section two-col">
+        <section class="section two-col" id="visit">
             <article class="card">
                 <h2>Location</h2>
                 <p>21 Oak Street, Downtown</p>
@@ -46,9 +52,15 @@
                 <p>Sat–Sun: 8:00–17:00</p>
             </article>
             <article class="card">
-                <h2>Customer Note</h2>
-                <p>“Best cappuccino in town and an amazing place to work for a few hours.”</p>
+                <h2>Today’s Special</h2>
+                <p id="special-text">Honey Cinnamon Flat White + Almond Biscotti</p>
+                <button id="next-special" class="cta ghost" type="button">Next Special</button>
             </article>
+        </section>
+
+        <section class="section reserve">
+            <h2>Reserve a Table</h2>
+            <p>For weekend brunch and private tasting evenings, call +370 600 12345.</p>
         </section>
     </main>
 
@@ -56,6 +68,6 @@
         <p>© <span id="year"></span> Brew Haven Coffee</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
