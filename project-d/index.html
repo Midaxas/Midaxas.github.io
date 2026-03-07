@@ -16,8 +16,8 @@
         <a href="/" class="home-link">&larr; Back to Moowre</a>
         <p class="brand">CaseRush Market</p>
         <div class="top-actions">
-            <button class="chip-btn" type="button">Wallet Mode</button>
-            <button class="chip-btn" type="button">Inventory</button>
+            <button id="wallet-toggle-btn" class="chip-btn" type="button">Wallet Mode: OFF</button>
+            <button id="inventory-jump-btn" class="chip-btn" type="button">Inventory</button>
         </div>
     </header>
 
@@ -25,14 +25,15 @@
         <section class="hero">
             <h1>CS2 CASE SIMULATOR</h1>
             <div class="search-bar" role="search">
-                <input type="text" placeholder="Search containers and items..." disabled>
+                <input id="market-search" type="text" placeholder="Search containers and items...">
             </div>
             <div class="hero-chips">
-                <span class="hero-chip active">Home</span>
-                <span class="hero-chip">Cases</span>
-                <span class="hero-chip">Armory</span>
-                <span class="hero-chip">Souvenirs</span>
-                <span class="hero-chip">Stickers</span>
+                <button class="hero-chip active" data-category="home" type="button">Home</button>
+                <button class="hero-chip" data-category="cases" type="button">Cases</button>
+                <button class="hero-chip" data-category="cases-more" type="button">Cases (More)</button>
+                <button class="hero-chip" data-category="armory" type="button">Armory</button>
+                <button class="hero-chip" data-category="souvenirs" type="button">Souvenirs</button>
+                <button class="hero-chip" data-category="stickers" type="button">Stickers</button>
             </div>
             <div class="hero-stats">
                 <article><span>Cash</span><strong id="cash-value">$0.00</strong></article>
@@ -51,8 +52,8 @@
             <div class="main-col">
                 <section class="panel">
                     <div class="panel-head">
-                        <h2>Cases</h2>
-                        <span class="small-tag">Open and roll</span>
+                        <h2>Containers</h2>
+                        <span id="container-count" class="small-tag">Open and roll</span>
                     </div>
                     <div id="case-list" class="case-list"></div>
                 </section>
@@ -79,7 +80,7 @@
             </div>
 
             <aside class="side-col">
-                <section class="panel">
+                <section id="inventory-panel" class="panel">
                     <div class="inventory-head">
                         <h2>Inventory</h2>
                         <button id="sell-all-btn" class="btn ghost" type="button">Sell All</button>
@@ -93,12 +94,12 @@
                         <span class="small-tag">Balanced rarities</span>
                     </div>
                     <ul class="rarity-list">
-                        <li><span class="rarity consumer">Consumer</span><strong>30%</strong></li>
-                        <li><span class="rarity industrial">Industrial</span><strong>24%</strong></li>
-                        <li><span class="rarity mil-spec">Mil-Spec</span><strong>20%</strong></li>
-                        <li><span class="rarity restricted">Restricted</span><strong>14%</strong></li>
-                        <li><span class="rarity classified">Classified</span><strong>8%</strong></li>
-                        <li><span class="rarity covert">Covert</span><strong>4%</strong></li>
+                        <li><span class="rarity covert">Profit Target</span><strong>20%</strong></li>
+                        <li><span class="rarity consumer">Loss Target</span><strong>80%</strong></li>
+                        <li><span class="rarity industrial">Consumer</span><strong>Common</strong></li>
+                        <li><span class="rarity mil-spec">Mil-Spec</span><strong>Mid</strong></li>
+                        <li><span class="rarity restricted">Restricted</span><strong>Rare</strong></li>
+                        <li><span class="rarity classified">Classified+</span><strong>High</strong></li>
                     </ul>
                 </section>
 
