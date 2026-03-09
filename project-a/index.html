@@ -3,116 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Luna Lens Studio — modern photography portfolio website.">
+    <meta name="description" content="Luna Lens Studio - destination photographer booking page with hero search and service highlights.">
     <title>Luna Lens Studio</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
     <header class="topbar">
-        <a href="/" class="home-link">← Back to Moowre</a>
-        <p>Luna Lens Studio</p>
+        <a href="/" class="brand">Luna Lens <span>Global Photography</span></a>
+        <nav class="nav-links" aria-label="Main navigation">
+            <a href="#top">Home</a>
+            <a href="#gallery">Destinations</a>
+            <a href="#works">How It Works</a>
+            <a href="#book">Pricing</a>
+            <a href="#book">Gift Cards</a>
+            <a href="#contact">Business</a>
+        </nav>
+        <a href="mailto:mode@nasa.lt" class="top-contact">hello@lunalens.studio</a>
     </header>
 
-    <main>
-        <section class="hero">
-            <p class="eyebrow">Project A</p>
-            <h1>Luna Lens Studio</h1>
-            <p>Fine-art photography portfolio for weddings, editorials, and personal brands with a cinematic visual style.</p>
-            <div class="hero-actions">
-                <a class="btn" href="#gallery">Explore Gallery</a>
-                <a class="btn ghost" href="#book">Book Session</a>
+    <main id="top">
+        <section class="hero-banner">
+            <div class="hero-overlay">
+                <p class="eyebrow">Luna Lens Studio</p>
+                <h1>Book Story-Driven Travel Photography in the Cities You Actually Visit</h1>
+                <p class="lead">From surprise proposals to family trips, Luna Lens matches you with photographers who know the city light, pace, and best walkable routes.</p>
+                <form class="hero-search" aria-label="Destination search">
+                    <label for="destination-select" class="sr-only">Choose destination</label>
+                    <select id="destination-select">
+                        <option value="">Step 1: Choose your destination...</option>
+                        <option>Rome</option>
+                        <option>Santorini</option>
+                        <option>Paris</option>
+                        <option>New York City</option>
+                        <option>Tokyo</option>
+                    </select>
+                    <button class="btn" type="button">Step 2: Find available photographers 🔍</button>
+                </form>
             </div>
         </section>
 
-        <section class="metrics">
-            <article><strong>120+</strong><span>Sessions Captured</span></article>
-            <article><strong>18</strong><span>Awards & Features</span></article>
-            <article><strong>6 yrs</strong><span>Industry Experience</span></article>
+        <section class="benefits" id="works">
+            <h2>What You Get With Every Booking</h2>
+            <div class="benefit-grid">
+                <article class="benefit-item"><span>🧭</span><p>Individual Approach</p></article>
+                <article class="benefit-item"><span>⭐</span><p>Vetted Local Photographer</p></article>
+                <article class="benefit-item"><span>🛥</span><p>Special Requests Option</p></article>
+                <article class="benefit-item"><span>📷</span><p>Practical Shoot Spot Suggestions</p></article>
+                <article class="benefit-item"><span>🎟</span><p>Reschedule and Satisfaction Support</p></article>
+                <article class="benefit-item"><span>💎</span><p>Private Session</p></article>
+            </div>
+            <div class="benefits-cta">
+                <a class="btn" href="#book">Find the Best Photographer</a>
+            </div>
         </section>
 
-        <section class="section">
-            <h2>Services</h2>
+        <section class="section service-shell">
+            <h2>How Booking Works</h2>
             <div class="grid">
-                <article class="card"><h3>Weddings</h3><p>Natural documentary photography for full wedding days.</p></article>
-                <article class="card"><h3>Brand Sessions</h3><p>Clean visual sets for founders and personal brands.</p></article>
-                <article class="card"><h3>Editorial</h3><p>Story-driven photo direction with polished post-processing.</p></article>
+                <article class="card"><h3>1. Choose Destination</h3><p>Pick city, travel date, and session style. We shortlist available photographers in that area.</p></article>
+                <article class="card"><h3>2. Confirm Visual Style</h3><p>Share a mood board and your preferred framing style so the session direction is clear before shoot day.</p></article>
+                <article class="card"><h3>3. Book and Shoot</h3><p>You receive final timeline, shoot route, and a polished gallery that is ready to share or print.</p></article>
             </div>
         </section>
 
         <section class="section" id="gallery">
-            <h2>Featured Shoots</h2>
+            <div class="gallery-head">
+                <h2>Contact Sheet</h2>
+                <p id="gallery-meta">Showing 6 of 6 frames · All collections</p>
+            </div>
             <div class="filters">
                 <button class="filter-btn active" data-filter="all" type="button">All</button>
-                <button class="filter-btn" data-filter="wedding" type="button">Weddings</button>
+                <button class="filter-btn" data-filter="wedding" type="button">Wedding</button>
                 <button class="filter-btn" data-filter="brand" type="button">Brand</button>
                 <button class="filter-btn" data-filter="editorial" type="button">Editorial</button>
             </div>
             <div class="gallery">
                 <figure class="shot" data-type="wedding">
                     <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Golden hour wedding portrait">
-                    <figcaption>Golden Hour Wedding</figcaption>
+                    <figcaption>Golden Hour Ceremony · Nida</figcaption>
                 </figure>
                 <figure class="shot" data-type="brand">
                     <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Studio brand portrait setup">
-                    <figcaption>Studio Brand Portrait</figcaption>
+                    <figcaption>Founder Portrait Grid · Studio 17</figcaption>
                 </figure>
                 <figure class="shot" data-type="editorial">
                     <img src="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=1200&q=80" alt="Editorial city photoshoot look">
-                    <figcaption>City Editorial Story</figcaption>
+                    <figcaption>City Storyline · Autumn Issue</figcaption>
                 </figure>
                 <figure class="shot" data-type="wedding">
                     <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1200&q=80" alt="Coastal couple session by the sea">
-                    <figcaption>Coastal Couple Session</figcaption>
+                    <figcaption>Coastal Vows · Baltic Wind</figcaption>
                 </figure>
                 <figure class="shot" data-type="brand">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80" alt="Founder personal branding portrait">
-                    <figcaption>Founder Personal Branding</figcaption>
+                    <figcaption>Launch Week Portraits · Ember Lab</figcaption>
                 </figure>
                 <figure class="shot" data-type="editorial">
                     <img src="https://images.unsplash.com/photo-1495385794356-15371f348c31?auto=format&fit=crop&w=1200&q=80" alt="Monochrome fashion editorial set">
-                    <figcaption>Monochrome Fashion Set</figcaption>
+                    <figcaption>Monochrome Sequence · Vol. 09</figcaption>
                 </figure>
             </div>
         </section>
 
         <section class="section quote-wrap">
-            <h2>Client Words</h2>
-            <blockquote id="quote">“The photos felt timeless and emotional — exactly what we wanted.”</blockquote>
-            <button id="next-quote" class="btn ghost" type="button">Next Testimonial</button>
+            <div class="quote-head">
+                <h2>Reviews</h2>
+                <button id="next-quote" class="btn ghost" type="button">Next Note</button>
+            </div>
+            <blockquote id="quote">“We asked for elegant and honest photos. We got exactly that, with zero awkward posing.”</blockquote>
+            <p id="quote-credit" class="quote-credit">- Lina & Dovydas, sunset wedding session</p>
         </section>
 
-        <section id="book" class="section">
-            <h2>Book a Session</h2>
+        <section id="book" class="section booking-shell">
+            <h2>Pricing & Session Builder</h2>
             <form class="booking-form">
                 <label>
                     Your Name
-                    <input type="text" placeholder="Alex Morgan" required>
+                    <input id="client-name" type="text" placeholder="Alex Morgan" required>
                 </label>
                 <label>
                     Session Type
-                    <select>
-                        <option>Wedding</option>
-                        <option>Brand</option>
-                        <option>Editorial</option>
+                    <select id="session-type">
+                        <option value="wedding">Wedding Story</option>
+                        <option value="brand">Brand Story</option>
+                        <option value="editorial">Editorial Set</option>
+                    </select>
+                </label>
+                <label>
+                    Duration (hours)
+                    <input id="session-hours" type="range" min="1" max="12" value="4">
+                    <small><span id="hours-label">4</span> hours selected</small>
+                </label>
+                <label>
+                    Delivery Speed
+                    <select id="delivery-speed">
+                        <option value="standard">Standard (5 days)</option>
+                        <option value="priority">Priority (48 hours)</option>
                     </select>
                 </label>
                 <label class="full">
                     Notes
-                    <textarea rows="4" placeholder="Tell us your preferred date and vision..."></textarea>
+                    <textarea rows="4" placeholder="Share date, location, and mood references..."></textarea>
                 </label>
+                <div class="estimate full" id="estimate-box">
+                    Estimated package: <strong id="estimate-value">EUR540</strong>
+                </div>
                 <button class="btn" type="button">Send Inquiry</button>
             </form>
         </section>
     </main>
 
-    <footer>
+    <footer id="contact">
         <p>© <span id="year"></span> Luna Lens Studio</p>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>

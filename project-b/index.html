@@ -3,46 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Brew Haven Coffee — café landing page.">
+    <meta name="description" content="Brew Haven Coffee - neighborhood cafe site with menu board, brew log, and rotating specials.">
     <title>Brew Haven Coffee</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=3">
 </head>
 <body>
     <header class="topbar">
-        <a href="/" class="home-link">← Back to Moowre</a>
-        <p>Brew Haven Coffee</p>
+        <a href="/" class="brand-link">☕ Brew Haven</a>
+        <nav class="main-nav" aria-label="Primary navigation">
+            <a href="#top">Home</a>
+            <a href="#menu">About</a>
+            <a href="#menu">Our Product</a>
+            <a href="#menu">Category</a>
+            <a href="#visit">Contact Us</a>
+        </nav>
+        <div class="top-actions">
+            <button class="icon-btn" type="button" aria-label="Search">⌕</button>
+            <a class="register-btn" href="#reserve">Register ↗</a>
+        </div>
     </header>
 
-    <main>
+    <main id="top">
         <section class="hero">
-            <p class="eyebrow">Project B</p>
-            <h1>Brew Haven Coffee</h1>
-            <p>Warm neighborhood café landing page focused on handcrafted drinks and cozy atmosphere.</p>
-            <div class="hero-actions">
-                <a class="cta" href="#menu">See Menu</a>
-                <a class="cta ghost" href="#visit">Visit Us</a>
+            <div class="hero-copy">
+                <p class="eyebrow">Project B · Daily Brew Board</p>
+                <h1>Enjoy The Most <span>Delicious Coffee</span></h1>
+                <p>Start with a cup that wakes you up without wrecking your stomach. Built for early shifts, laptop mornings, and slow weekend catchups.</p>
+                <div class="hero-actions">
+                    <a class="cta" href="#menu">Explore ↗</a>
+                    <a class="cta ghost" href="#visit">Order Coffee ☕</a>
+                </div>
             </div>
-            <img class="hero-image" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1600&q=80" alt="Warm cozy cafe interior scene">
+
+            <div class="hero-media">
+                <img class="hero-image" src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=1200&q=80" alt="Coffee cup in hand">
+                <article class="rating-badge top">
+                    <p>★★★★★</p>
+                    <small>4.9 local average from weekly regulars</small>
+                </article>
+                <article class="rating-badge bottom">
+                    <p>★★★★★</p>
+                    <small>Most ordered between 7:00 and 10:30</small>
+                </article>
+            </div>
+        </section>
+
+        <section class="brew-strip">
+            <p>Now brewing from <strong id="origin-ticker">Colombia - Huila, washed process</strong></p>
+        </section>
+
+        <section class="featured-row" aria-label="Popular coffees">
+            <article class="featured-card">
+                <img src="https://images.unsplash.com/photo-1521302080371-cb2395f72f5d?auto=format&fit=crop&w=900&q=80" alt="Americano with cream">
+                <h3>Americano</h3>
+                <p>A smooth daily cup with deep roast notes.</p>
+            </article>
+            <article class="featured-card">
+                <img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?auto=format&fit=crop&w=900&q=80" alt="Black coffee closeup">
+                <h3>Black Coffee</h3>
+                <p>Clean and bold for no-nonsense mornings.</p>
+            </article>
+            <article class="featured-card">
+                <img src="https://images.unsplash.com/photo-1494314671902-399b18174975?auto=format&fit=crop&w=900&q=80" alt="Mocha cup on table">
+                <h3>Mocha</h3>
+                <p>Chocolate-forward with creamy finish.</p>
+            </article>
+            <article class="featured-card">
+                <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=900&q=80" alt="Breve coffee art">
+                <h3>Breve</h3>
+                <p>Rich espresso balanced with silky half-and-half.</p>
+            </article>
         </section>
 
         <section id="menu" class="section">
-            <h2>Menu Highlights</h2>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all" type="button">All</button>
-                <button class="filter-btn" data-filter="coffee" type="button">Coffee</button>
-                <button class="filter-btn" data-filter="snack" type="button">Snacks</button>
+            <div class="menu-head">
+                <h2>Menu Highlights</h2>
+                <div class="menu-tools">
+                    <div class="filters">
+                        <button class="filter-btn active" data-filter="all" type="button">All</button>
+                        <button class="filter-btn" data-filter="coffee" type="button">Coffee</button>
+                        <button class="filter-btn" data-filter="snack" type="button">Snacks</button>
+                    </div>
+                    <select id="menu-sort" aria-label="Sort menu items">
+                        <option value="featured">Sort: Featured</option>
+                        <option value="low">Sort: Price low to high</option>
+                        <option value="high">Sort: Price high to low</option>
+                    </select>
+                </div>
+                <p id="menu-meta">6 items shown</p>
             </div>
             <div class="menu-grid" id="menu-grid">
-                <article class="menu-item" data-type="coffee"><h3>Espresso</h3><p>Strong and smooth single-origin shot.</p><strong>€2.60</strong></article>
-                <article class="menu-item" data-type="coffee"><h3>Vanilla Latte</h3><p>Signature latte with house vanilla cream.</p><strong>€4.20</strong></article>
-                <article class="menu-item" data-type="coffee"><h3>Cold Brew</h3><p>Slow-steeped for a soft and bold finish.</p><strong>€3.80</strong></article>
-                <article class="menu-item" data-type="snack"><h3>Butter Croissant</h3><p>Freshly baked every morning.</p><strong>€2.90</strong></article>
-                <article class="menu-item" data-type="snack"><h3>Banana Bread</h3><p>Moist loaf with cinnamon crumble topping.</p><strong>€3.10</strong></article>
-                <article class="menu-item" data-type="snack"><h3>Berry Tart</h3><p>Seasonal berries with creamy filling.</p><strong>€3.90</strong></article>
+                <article class="menu-item" data-type="coffee" data-price="2.60"><h3>Espresso</h3><p>Strong and smooth single-origin shot.</p><strong>€2.60</strong></article>
+                <article class="menu-item" data-type="coffee" data-price="4.20"><h3>Vanilla Latte</h3><p>Signature latte with house vanilla cream.</p><strong>€4.20</strong></article>
+                <article class="menu-item" data-type="coffee" data-price="3.80"><h3>Cold Brew</h3><p>Slow-steeped for a soft and bold finish.</p><strong>€3.80</strong></article>
+                <article class="menu-item" data-type="snack" data-price="2.90"><h3>Butter Croissant</h3><p>Freshly baked every morning.</p><strong>€2.90</strong></article>
+                <article class="menu-item" data-type="snack" data-price="3.10"><h3>Banana Bread</h3><p>Moist loaf with cinnamon crumble topping.</p><strong>€3.10</strong></article>
+                <article class="menu-item" data-type="snack" data-price="3.90"><h3>Berry Tart</h3><p>Seasonal berries with creamy filling.</p><strong>€3.90</strong></article>
             </div>
         </section>
 
@@ -88,7 +148,14 @@
             </article>
         </section>
 
-        <section class="section reserve">
+        <section class="section board">
+            <h2>Rush Meter</h2>
+            <label for="rush-range">Current queue intensity</label>
+            <input id="rush-range" type="range" min="1" max="10" value="4">
+            <p id="rush-label">Calm pace · average wait 4 min</p>
+        </section>
+
+        <section id="reserve" class="section reserve">
             <h2>Reserve a Table</h2>
             <p>For weekend brunch and private tasting evenings, call +370 600 12345.</p>
         </section>
@@ -98,6 +165,6 @@
         <p>© <span id="year"></span> Brew Haven Coffee</p>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>

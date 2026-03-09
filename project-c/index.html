@@ -3,78 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FitTrack Coach — fitness coaching website.">
-    <title>FitTrack Coach</title>
+    <meta name="description" content="FitLynk - hire top personal trainers for strength, fat loss, mobility, and performance goals.">
+    <title>FitLynk</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
     <header class="topbar">
-        <a href="/" class="home-link">← Back to Moowre</a>
-        <p>FitTrack Coach</p>
+        <div class="topbar-row">
+            <a href="/" class="brand">fitlynk</a>
+            <nav class="primary-nav" aria-label="Primary navigation">
+                <a href="#top">Hire Trainers</a>
+                <a href="#cards">Find Work</a>
+                <a href="#cards">Why FitLynk</a>
+                <a href="#cards">Pricing</a>
+                <a href="#cards">For Teams</a>
+            </nav>
+            <div class="top-controls">
+                <label class="search-wrap" for="coach-search">
+                    <span>⌕</span>
+                    <input id="coach-search" type="text" placeholder="Search coaches">
+                </label>
+                <a class="login-link" href="#">Log in</a>
+                <button class="signup-btn" type="button">Sign up</button>
+            </div>
+        </div>
+        <div class="topbar-subnav">
+            <a href="#cards">Strength Training</a>
+            <a href="#cards">Nutrition</a>
+            <a href="#cards">Sports Rehab</a>
+            <a href="#cards">Weight Loss</a>
+            <a href="#cards">Mobility</a>
+            <a href="#cards">More</a>
+        </div>
     </header>
 
-    <main>
+    <main id="top">
         <section class="hero">
-            <p class="eyebrow">Project C</p>
-            <h1>FitTrack Coach</h1>
-            <p>Personal trainer website with coaching plans, success stories, and a focused FAQ section.</p>
-            <a class="cta" href="#calculator">Try BMI Calculator</a>
-        </section>
-
-        <section class="section">
-            <h2>Programs</h2>
-            <div class="plans">
-                <article class="plan"><h3>Starter</h3><p>4-week plan with habit check-ins.</p><strong>€79</strong></article>
-                <article class="plan"><h3>Performance</h3><p>8-week strength and cardio split.</p><strong>€149</strong></article>
-                <article class="plan"><h3>Transformation</h3><p>12-week personalized coaching and nutrition guidance.</p><strong>€229</strong></article>
+            <h1>Hire the Best Personal Trainers</h1>
+            <p class="hero-rating">Clients rate our top trainers <span>★★★★★</span> 4.9/5 average</p>
+            <p class="hero-sub">Based on 761 client reviews</p>
+            <div class="hero-actions">
+                <button class="cta" type="button">Hire a trainer</button>
             </div>
         </section>
 
-        <section class="section">
-            <h2>Client Transformations</h2>
-            <div class="stories">
-                <article class="story"><p>“Lost 8kg in 10 weeks while building consistent routines.”</p><span>— Mantas</span><strong>Weight Goal Achieved</strong></article>
-                <article class="story"><p>“Improved strength and energy with a realistic plan.”</p><span>— Ema</span><strong>Consistency Streak: 74 days</strong></article>
-            </div>
-        </section>
+        <section id="cards" class="section coach-shell">
+            <div class="crumbs">🏠 / Wellness Talent / Personal Trainers</div>
 
-        <section class="section" id="calculator">
-            <h2>BMI Calculator</h2>
-            <div class="calculator">
-                <label>
-                    Height (cm)
-                    <input id="height" type="number" min="120" max="230" value="175">
-                </label>
-                <label>
-                    Weight (kg)
-                    <input id="weight" type="number" min="35" max="220" value="72">
-                </label>
-                <button id="calc-bmi" class="cta" type="button">Calculate</button>
-                <p id="bmi-result" class="result">BMI: 23.5 — Normal range</p>
-            </div>
-        </section>
+            <div class="coach-grid" id="coach-grid">
+                <article class="coach-card" data-tags="strength,nutrition" data-rate="5.0">
+                    <div class="coach-head">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=260&q=80" alt="Coach profile">
+                        <div>
+                            <h3>Raina M.</h3>
+                            <p class="location">Brisbane, Australia</p>
+                            <p class="meta">$32/hr · ⭐ 5.0 · 14 completed plans</p>
+                        </div>
+                    </div>
+                    <p class="bio">Evidence-based strength programming for busy professionals with desk-heavy schedules.</p>
+                    <div class="chips">
+                        <span>Strength</span><span>Mobility</span><span>Desk Posture</span>
+                    </div>
+                    <button class="profile-btn" type="button">See profile</button>
+                </article>
 
-        <section class="section">
-            <h2>FAQ</h2>
-            <div class="faq-item">
-                <button class="faq-q" type="button">Do I need gym experience?</button>
-                <p class="faq-a">No. Programs are adjusted for beginners through advanced levels.</p>
+                <article class="coach-card" data-tags="nutrition,body-recomp" data-rate="5.0">
+                    <div class="coach-head">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=260&q=80" alt="Coach profile">
+                        <div>
+                            <h3>Owen J.</h3>
+                            <p class="location">Austin, Texas</p>
+                            <p class="meta">$40/hr · ⭐ 5.0 · 29 completed plans</p>
+                        </div>
+                    </div>
+                    <p class="bio">Hybrid nutrition and training plans to build muscle while maintaining energy for work.</p>
+                    <div class="chips">
+                        <span>Nutrition</span><span>Body Recomp</span><span>Habit Design</span>
+                    </div>
+                    <button class="profile-btn" type="button">See profile</button>
+                </article>
+
+                <article class="coach-card" data-tags="fat-loss,conditioning" data-rate="5.0">
+                    <div class="coach-head">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=260&q=80" alt="Coach profile">
+                        <div>
+                            <h3>Matteo R.</h3>
+                            <p class="location">Milan, Italy</p>
+                            <p class="meta">$28/hr · ⭐ 5.0 · 22 completed plans</p>
+                        </div>
+                    </div>
+                    <p class="bio">Simple fat-loss frameworks with sustainable cardio progressions and weekly check-ins.</p>
+                    <div class="chips">
+                        <span>Fat Loss</span><span>Conditioning</span><span>Meal Prep</span>
+                    </div>
+                    <button class="profile-btn" type="button">See profile</button>
+                </article>
+
+                <article class="coach-card" data-tags="athletic,performance" data-rate="4.9">
+                    <div class="coach-head">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=260&q=80" alt="Coach profile">
+                        <div>
+                            <h3>Haris K.</h3>
+                            <p class="location">Cairo, Egypt</p>
+                            <p class="meta">$35/hr · ⭐ 4.9 · 18 plans</p>
+                        </div>
+                    </div>
+                    <p class="bio">Athletic performance blocks for speed, agility, and injury-aware progressive overload.</p>
+                    <div class="chips">
+                        <span>Athletic</span><span>Explosiveness</span><span>Recovery</span>
+                    </div>
+                    <button class="profile-btn" type="button">See profile</button>
+                </article>
+
+                <article class="coach-card" data-tags="womens-health,wellness" data-rate="5.0">
+                    <div class="coach-head">
+                        <img src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?auto=format&fit=crop&w=260&q=80" alt="Coach profile">
+                        <div>
+                            <h3>Leila A.</h3>
+                            <p class="location">Nairobi, Kenya</p>
+                            <p class="meta">$30/hr · ⭐ 5.0 · 26 plans</p>
+                        </div>
+                    </div>
+                    <p class="bio">Women-focused coaching blending hormone-aware training with practical nutrition routines.</p>
+                    <div class="chips">
+                        <span>Women's Health</span><span>Wellness</span><span>Strength</span>
+                    </div>
+                    <button class="profile-btn" type="button">See profile</button>
+                </article>
+
+                <article class="coach-card" data-tags="mobility,rehab" data-rate="4.9">
+                    <div class="coach-head">
+                        <img src="https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=260&q=80" alt="Coach profile">
+                        <div>
+                            <h3>Zaid N.</h3>
+                            <p class="location">Lisbon, Portugal</p>
+                            <p class="meta">$27/hr · ⭐ 4.9 · 21 plans</p>
+                        </div>
+                    </div>
+                    <p class="bio">Mobility-first coaching for pain-free training, better movement quality, and posture reset.</p>
+                    <div class="chips">
+                        <span>Mobility</span><span>Rehab</span><span>Core</span>
+                    </div>
+                    <button class="profile-btn" type="button">See profile</button>
+                </article>
             </div>
-            <div class="faq-item">
-                <button class="faq-q" type="button">Is meal planning included?</button>
-                <p class="faq-a">Yes, each plan includes practical nutrition guidance and adjustments.</p>
+
+            <div class="section-actions">
+                <button id="sort-rating" class="ghost-btn" type="button">Sort by top rating</button>
+                <button id="show-more" class="ghost-btn" type="button">View more coaches</button>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>© <span id="year"></span> FitTrack Coach</p>
+        <p>© <span id="year"></span> FitLynk</p>
     </footer>
 
-    <script src="script.js?v=2"></script>
+    <script src="script.js?v=4"></script>
 </body>
 </html>

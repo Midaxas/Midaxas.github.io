@@ -28,6 +28,8 @@ const MIN_WALLET_RESERVE = 150;
 const TARGET_PROFIT_CHANCE = 0.2;
 const API_SKINS_URL = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en/skins.json';
 const API_CRATES_URL = 'https://raw.githubusercontent.com/ByMykel/CSGO-API/main/public/api/en/crates.json';
+const CASES_PER_GROUP = 10;
+const SKINS_PER_GROUP = 8;
 
 function fallbackImage(label) {
     return `https://dummyimage.com/600x340/1a2e87/b3c7ff.png&text=${encodeURIComponent(label)}`;
@@ -175,6 +177,8 @@ Object.values(skinCatalog).forEach((skin) => {
 let activeCategory = 'home';
 let searchTerm = '';
 let isRolling = false;
+const expandedCaseGroups = new Set();
+const expandedSkinGroups = new Set();
 let state = loadState();
 
 if (yearNode) {
@@ -226,6 +230,7 @@ function bindUiActions() {
         button.addEventListener('click', () => {
             const nextCategory = button.getAttribute('data-category') || 'home';
             activeCategory = nextCategory;
+            expandedCaseGroups.clear();
             categoryButtons.forEach((node) => {
                 node.classList.toggle('active', node === button);
             });
@@ -581,6 +586,26 @@ function rarityBadgeClass(rarity) {
     return rarity.toLowerCase().replace(/\s+/g, '-');
 }
 
+function categoryLabel(category) {
+    const labels = {
+        home: 'All Containers',
+        cases: 'Cases',
+        'cases-more': 'Cases (More)',
+        armory: 'Armory',
+        souvenirs: 'Souvenirs',
+        stickers: 'Stickers'
+    };
+
+    return labels[category] || category;
+}
+
+function rarityLabel(rarity) {
+    return String(rarity)
+        .split('-')
+        .map((chunk) => chunk[0].toUpperCase() + chunk.slice(1))
+        .join('-');
+}
+
 function renderStats() {
     if (cashValue) {
         cashValue.textContent = formatMoney(state.cash);
@@ -676,23 +701,58 @@ function renderCases() {
         return;
     }
 
-    caseListNode.innerHTML = visibleContainers.map((caseDef) => {
-        const canAfford = canOpenCase(caseDef);
-        const warning = state.walletMode && state.cash >= caseDef.price && state.cash - caseDef.price < MIN_WALLET_RESERVE
-            ? `<p class="case-sub log-bad">Wallet reserve active (${formatMoney(MIN_WALLET_RESERVE)} min cash).</p>`
+    const grouped = new Map();
+    visibleContainers.forEach((caseDef) => {
+        const groupKey = caseDef.category || 'cases-more';
+        if (!grouped.has(groupKey)) grouped.set(groupKey, []);
+        grouped.get(groupKey).push(caseDef);
+    });
+
+    const preferredOrder = ['cases', 'cases-more', 'armory', 'souvenirs', 'stickers'];
+    const groupKeys = preferredOrder.filter((key) => grouped.has(key));
+    grouped.forEach((_, key) => {
+        if (!groupKeys.includes(key)) groupKeys.push(key);
+    });
+
+    caseListNode.innerHTML = groupKeys.map((groupKey) => {
+        const allInGroup = grouped.get(groupKey) || [];
+        const expanded = expandedCaseGroups.has(groupKey);
+        const shown = expanded ? allInGroup : allInGroup.slice(0, CASES_PER_GROUP);
+        const hiddenCount = Math.max(0, allInGroup.length - shown.length);
+
+        const cardMarkup = shown.map((caseDef) => {
+            const canAfford = canOpenCase(caseDef);
+            const warning = state.walletMode && state.cash >= caseDef.price && state.cash - caseDef.price < MIN_WALLET_RESERVE
+                ? `<p class="case-sub log-bad">Wallet reserve active (${formatMoney(MIN_WALLET_RESERVE)} min cash).</p>`
+                : '';
+
+            return `
+                <article class="case-card">
+                    ${safeImg(caseDef.image, caseDef.name, 'case-thumb')}
+                    <div class="case-title">
+                        <h3>${caseDef.name}</h3>
+                        <p class="case-sub">Price: <strong>${formatMoney(caseDef.price)}</strong></p>
+                        <p class="case-sub">${caseOddsText(caseDef)}</p>
+                        ${warning}
+                    </div>
+                    <button class="btn" data-open-case="${caseDef.id}" ${!canAfford ? 'disabled' : ''}>Open</button>
+                </article>
+            `;
+        }).join('');
+
+        const toggleMarkup = allInGroup.length > CASES_PER_GROUP
+            ? `<button class="btn ghost list-toggle" data-toggle-case-group="${groupKey}" type="button">${expanded ? 'Show less' : `Show more (${hiddenCount})`}</button>`
             : '';
 
         return `
-            <article class="case-card">
-                ${safeImg(caseDef.image, caseDef.name, 'case-thumb')}
-                <div class="case-title">
-                    <h3>${caseDef.name}</h3>
-                    <p class="case-sub">Price: <strong>${formatMoney(caseDef.price)}</strong></p>
-                    <p class="case-sub">${caseOddsText(caseDef)}</p>
-                    ${warning}
+            <section class="list-group-shell">
+                <div class="list-group-head">
+                    <h3>${categoryLabel(groupKey)}</h3>
+                    <span class="small-tag">${allInGroup.length} listed</span>
                 </div>
-                <button class="btn" data-open-case="${caseDef.id}" ${!canAfford ? 'disabled' : ''}>Open</button>
-            </article>
+                <div class="list-group-body">${cardMarkup}</div>
+                ${toggleMarkup}
+            </section>
         `;
     }).join('');
 
@@ -704,25 +764,74 @@ function renderCases() {
             openCase(caseDef);
         });
     });
+
+    caseListNode.querySelectorAll('[data-toggle-case-group]').forEach((button) => {
+        button.addEventListener('click', () => {
+            const groupKey = button.getAttribute('data-toggle-case-group');
+            if (!groupKey) return;
+
+            if (expandedCaseGroups.has(groupKey)) expandedCaseGroups.delete(groupKey);
+            else expandedCaseGroups.add(groupKey);
+
+            renderCases();
+        });
+    });
 }
 
 function renderMarket() {
     if (!marketListNode) return;
 
-    marketListNode.innerHTML = marketSkins.map((skinId) => {
-        const skin = skinCatalog[skinId];
-        if (!skin) return '';
+    const skins = marketSkins
+        .map((skinId) => skinCatalog[skinId])
+        .filter(Boolean)
+        .sort((a, b) => b.value - a.value);
 
-        const buyPrice = skin.value * 1.13;
+    const grouped = new Map();
+    skins.forEach((skin) => {
+        const groupKey = skin.rarity || 'mil-spec';
+        if (!grouped.has(groupKey)) grouped.set(groupKey, []);
+        grouped.get(groupKey).push(skin);
+    });
+
+    const preferredOrder = ['covert', 'classified', 'restricted', 'mil-spec', 'industrial', 'consumer'];
+    const groupKeys = preferredOrder.filter((key) => grouped.has(key));
+    grouped.forEach((_, key) => {
+        if (!groupKeys.includes(key)) groupKeys.push(key);
+    });
+
+    marketListNode.innerHTML = groupKeys.map((groupKey) => {
+        const allInGroup = grouped.get(groupKey) || [];
+        const expanded = expandedSkinGroups.has(groupKey);
+        const shown = expanded ? allInGroup : allInGroup.slice(0, SKINS_PER_GROUP);
+        const hiddenCount = Math.max(0, allInGroup.length - shown.length);
+
+        const rowMarkup = shown.map((skin) => {
+            const buyPrice = skin.value * 1.13;
+            return `
+                <article class="skin-row">
+                    ${safeImg(skin.image, skin.name, 'skin-thumb')}
+                    <div>
+                        <h3>${skin.name}</h3>
+                        <p class="skin-meta"><span class="rarity ${rarityBadgeClass(skin.rarity)}">${skin.rarity}</span> <span class="skin-value">${formatMoney(skin.value)}</span></p>
+                    </div>
+                    <button class="btn ghost" data-buy-skin="${skin.id}" ${state.cash < buyPrice || isRolling ? 'disabled' : ''}>Buy ${formatMoney(buyPrice)}</button>
+                </article>
+            `;
+        }).join('');
+
+        const toggleMarkup = allInGroup.length > SKINS_PER_GROUP
+            ? `<button class="btn ghost list-toggle" data-toggle-skin-group="${groupKey}" type="button">${expanded ? 'Show less' : `Show more (${hiddenCount})`}</button>`
+            : '';
+
         return `
-            <article class="skin-row">
-                ${safeImg(skin.image, skin.name, 'skin-thumb')}
-                <div>
-                    <h3>${skin.name}</h3>
-                    <p class="skin-meta"><span class="rarity ${rarityBadgeClass(skin.rarity)}">${skin.rarity}</span> <span class="skin-value">${formatMoney(skin.value)}</span></p>
+            <section class="list-group-shell">
+                <div class="list-group-head">
+                    <h3>${rarityLabel(groupKey)}</h3>
+                    <span class="small-tag">${allInGroup.length} listed</span>
                 </div>
-                <button class="btn ghost" data-buy-skin="${skin.id}" ${state.cash < buyPrice || isRolling ? 'disabled' : ''}>Buy ${formatMoney(buyPrice)}</button>
-            </article>
+                <div class="list-group-body">${rowMarkup}</div>
+                ${toggleMarkup}
+            </section>
         `;
     }).join('');
 
@@ -730,6 +839,18 @@ function renderMarket() {
         button.addEventListener('click', () => {
             const skinId = button.getAttribute('data-buy-skin');
             buySkin(skinId);
+        });
+    });
+
+    marketListNode.querySelectorAll('[data-toggle-skin-group]').forEach((button) => {
+        button.addEventListener('click', () => {
+            const groupKey = button.getAttribute('data-toggle-skin-group');
+            if (!groupKey) return;
+
+            if (expandedSkinGroups.has(groupKey)) expandedSkinGroups.delete(groupKey);
+            else expandedSkinGroups.add(groupKey);
+
+            renderMarket();
         });
     });
 }

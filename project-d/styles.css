@@ -258,6 +258,37 @@ h2 {
     gap: 0.6rem;
 }
 
+.list-group-shell {
+    border: 1px solid rgba(45, 76, 191, 0.55);
+    border-radius: 12px;
+    background: rgba(8, 16, 60, 0.55);
+    padding: 0.55rem;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.list-group-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.list-group-head h3 {
+    font-size: 1.35rem;
+}
+
+.list-group-body {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.list-toggle {
+    justify-self: start;
+    font-size: 0.84rem;
+    padding: 0.38rem 0.62rem;
+}
+
 .case-card,
 .skin-row,
 .inventory-card {
