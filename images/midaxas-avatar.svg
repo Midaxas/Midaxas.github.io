@@ -1,0 +1,15 @@
+<svg width="520" height="580" viewBox="0 0 520 580" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="avatarTitle avatarDesc">
+  <title id="avatarTitle">Midaxas Avatar</title>
+  <desc id="avatarDesc">Abstract warm-toned avatar illustration for the about section.</desc>
+  <rect width="520" height="580" rx="24" fill="#F7ECDF"/>
+  <rect x="36" y="36" width="448" height="508" rx="20" fill="#FFF9F2"/>
+  <circle cx="260" cy="216" r="108" fill="#E9C7A5"/>
+  <path d="M152 208C152 142 204 94 264 94C323 94 370 141 370 210V250H152V208Z" fill="#2E2A2A"/>
+  <ellipse cx="219" cy="217" rx="10" ry="8" fill="#3D2D27"/>
+  <ellipse cx="301" cy="217" rx="10" ry="8" fill="#3D2D27"/>
+  <path d="M224 267C242 284 279 285 297 267" stroke="#B96B4B" stroke-width="8" stroke-linecap="round"/>
+  <rect x="176" y="324" width="168" height="180" rx="34" fill="#0B5F72"/>
+  <rect x="112" y="356" width="296" height="152" rx="40" fill="#D6622F"/>
+  <rect x="182" y="378" width="156" height="20" rx="10" fill="#FBEADB"/>
+  <rect x="200" y="410" width="120" height="20" rx="10" fill="#FBEADB"/>
+</svg>

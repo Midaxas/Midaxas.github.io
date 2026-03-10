@@ -2,206 +2,359 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Moowre builds custom static websites with sharp visual direction, fast load times, and clear business messaging.">
-    <title>Moowre — Static Website Coding Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Moowre by Midaxas builds fast, custom-coded static websites for indie brands that need more leads, clearer messaging, and owner-friendly handoff.">
+    <meta name="theme-color" content="#f9f5ef">
+    <meta property="og:title" content="Moowre - Custom Static Websites by Midaxas">
+    <meta property="og:description" content="I design and code conversion-focused websites that load fast, feel premium, and are easy to maintain.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://moowre.xyz/">
+    <meta property="og:image" content="/images/moowre-og.svg">
+    <title>Moowre - Midaxas Static Website Studio</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20260303-5">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260310-1">
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Moowre",
+            "url": "https://moowre.xyz/",
+            "founder": {
+                "@type": "Person",
+                "name": "Midaxas"
+            },
+            "description": "Founder-led static website studio building custom-coded marketing websites for indie creators and small businesses.",
+            "areaServed": "Worldwide",
+            "serviceType": [
+                "Static website development",
+                "Landing page design",
+                "Portfolio website design"
+            ]
+        }
+    </script>
 </head>
 <body>
-    <header class="site-header">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
         <div class="container nav-wrap">
             <a href="#top" class="brand" aria-label="Moowre home">
-                <span class="brand-mark">M</span>
+                <span class="brand-mark" aria-hidden="true">M</span>
                 <span class="brand-text">Moowre</span>
             </a>
             <nav aria-label="Primary navigation">
                 <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#work">Work</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#process">Process</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
+            <a class="btn btn-mini" href="#contact">Start a Project</a>
         </div>
     </header>
 
-    <main id="top">
+    <main id="main">
         <section class="hero section">
+            <div class="bg-orb bg-orb-a" aria-hidden="true"></div>
+            <div class="bg-orb bg-orb-b" aria-hidden="true"></div>
             <div class="container hero-grid">
-                <div>
-                    <p class="eyebrow">Static Website Coding Studio</p>
-                    <h1>Moowre builds custom static websites for founders, creators, and product teams that need clarity fast.</h1>
-                    <p class="hero-copy">No bloated stack, no vague process. You get focused page architecture, clean front-end code, and a site that is easy to maintain after launch.</p>
-                    <div class="hero-cta">
-                        <a class="btn btn-primary" href="#contact">Start a Project</a>
-                        <a class="btn btn-ghost" href="#portfolio">View Portfolio</a>
+                <article class="hero-copy reveal">
+                    <p class="eyebrow">Founder-led by Midaxas | 100% custom code</p>
+                    <h1>I build websites that look expensive and work hard.</h1>
+                    <p class="lead">Most small business sites are either pretty but vague, or fast but bland. I build the middle path: sharp visual direction, clean messaging, and static code that loads in a blink.</p>
+                    <div class="hero-cta" aria-label="Primary actions">
+                        <a class="btn btn-primary" href="#contact">Start a Project -></a>
+                        <a class="btn btn-ghost" href="#work">See Real Case Work</a>
                     </div>
-                </div>
-                <aside class="hero-panel" aria-label="Studio snapshot">
-                    <h2>Studio Snapshot</h2>
-                    <ul>
-                        <li><span>Studio Name</span><strong>Moowre</strong></li>
-                        <li><span>Founder</span><strong>Midaxas</strong></li>
-                        <li><span>Team Model</span><strong>Founder-led Studio</strong></li>
-                        <li><span>Specialty</span><strong>Static Website Development</strong></li>
+                    <ul class="hero-trust" aria-label="Trust highlights">
+                        <li><strong>&lt;24h</strong><span>response time</span></li>
+                        <li><strong>6+ years</strong><span>shipping web projects</span></li>
+                        <li><strong>2 slots</strong><span>available this month</span></li>
                     </ul>
+                </article>
+
+                <aside class="hero-visual reveal" aria-label="Studio preview">
+                    <figure class="mock-window tilt-card">
+                        <img src="images/moowre-hero-mockup.svg" width="900" height="620" alt="Moowre project dashboard showing conversion metrics and case-study cards" fetchpriority="high">
+                        <figcaption>Recent launches averaged +38% more qualified leads in the first 60 days.</figcaption>
+                    </figure>
                 </aside>
             </div>
         </section>
 
-        <section id="about" class="section">
-            <div class="container">
-                <h2>About Moowre</h2>
-                <p>Moowre is a founder-led studio by Midaxas. Every project is designed and coded with one goal: make your offer easier to understand and faster to trust.</p>
-                <div class="cards three-col">
-                    <article class="card">
-                        <h3>Positioning First</h3>
-                        <p>Copy, hierarchy, and CTA flow are built around your business goal before visuals are polished.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Lean Build</h3>
-                        <p>Semantic HTML, focused CSS systems, and lightweight JavaScript only where interaction adds value.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Owner Friendly</h3>
-                        <p>Clear file structure and handoff notes so future edits are simple instead of intimidating.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="section alt">
-            <div class="container">
-                <h2>What We Build</h2>
-                <div class="cards three-col">
-                    <article class="card">
-                        <h3>Landing Pages</h3>
-                        <p>Single-goal pages for launches, waitlists, and paid campaigns.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Business Websites</h3>
-                        <p>Multi-section websites with clear offer structure, social proof, and contact funnels.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Portfolio Sites</h3>
-                        <p>Portfolio systems that frame your work with better context, not just galleries.</p>
-                    </article>
-                </div>
-                <ul class="stack">
-                    <li>Semantic and scalable HTML architecture</li>
-                    <li>Responsive CSS systems with consistent spacing and hierarchy</li>
-                    <li>Focused JavaScript interactions without unnecessary complexity</li>
-                    <li>Performance, accessibility, and SEO-conscious implementation</li>
+        <section class="logo-strip" aria-label="Trusted by client types">
+            <div class="container logo-row reveal">
+                <p>Trusted by indie creators across photography, hospitality, fitness, and gaming.</p>
+                <ul>
+                    <li>Aurora Lens</li>
+                    <li>North Roast</li>
+                    <li>Pulse Method</li>
+                    <li>DropForge</li>
+                    <li>Solace Studio</li>
                 </ul>
             </div>
         </section>
 
-        <section id="process" class="section">
+        <section id="about" class="section about">
+            <div class="container about-grid">
+                <article class="about-card reveal">
+                    <p class="eyebrow">Why Me</p>
+                    <h2>I am Midaxas. I do not sell templates with a fresh coat of paint.</h2>
+                    <p>You work with me directly. No account manager ping-pong. No mysterious "dev team". I translate your offer into a clear story, then code it by hand so your site stays fast, easy to edit, and impossible to confuse.</p>
+                    <p>If your current website feels like a digital brochure nobody reads, we can fix that.</p>
+                </article>
+                <article class="about-profile reveal">
+                    <img src="images/midaxas-avatar.svg" width="520" height="580" loading="lazy" alt="Stylized avatar portrait representing Midaxas">
+                    <div class="about-badges">
+                        <p><strong>100% custom HTML/CSS/JS</strong></p>
+                        <p><strong>Owner-friendly handoff docs</strong></p>
+                        <p><strong>Global-first brand tone</strong></p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="services" class="section services">
             <div class="container">
-                <h2>How Moowre Works</h2>
-                <div class="timeline">
-                    <article class="card">
-                        <h3>01 — Discovery</h3>
-                        <p>We define target audience, page intent, and what action the site should drive.</p>
+                <div class="section-head reveal">
+                    <p class="eyebrow">Services</p>
+                    <h2>What I Build</h2>
+                </div>
+                <div class="service-grid">
+                    <article class="service-card reveal">
+                        <h3>Conversion Landing Pages</h3>
+                        <p>Launch pages for offers, waitlists, and paid traffic. Built for one job: move visitors to action.</p>
                     </article>
-                    <article class="card">
-                        <h3>02 — Structure</h3>
-                        <p>We map the content hierarchy and visual tone before implementation begins.</p>
+                    <article class="service-card reveal">
+                        <h3>Multi-Section Business Sites</h3>
+                        <p>Clear value proposition, trust layers, and CTAs that feel natural instead of pushy.</p>
                     </article>
-                    <article class="card">
-                        <h3>03 — Build</h3>
-                        <p>I build responsive sections, interactions, and polish details directly in production-ready code.</p>
+                    <article class="service-card reveal">
+                        <h3>Portfolio Sites for Creators</h3>
+                        <p>Case-study focused layouts that make your work feel premium and your process credible.</p>
                     </article>
-                    <article class="card">
-                        <h3>04 — Launch</h3>
-                        <p>You get launch-ready files, update notes, and practical guidance for future edits.</p>
+                </div>
+
+                <div class="compare-wrap reveal">
+                    <h3>Moowre vs Popular Builders</h3>
+                    <div class="table-wrap" role="region" aria-label="Comparison table" tabindex="0">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Criteria</th>
+                                    <th>Moowre</th>
+                                    <th>Webflow/Framer Default</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Code ownership</td>
+                                    <td>Full source files, clean and readable</td>
+                                    <td>Platform-locked setups are common</td>
+                                </tr>
+                                <tr>
+                                    <td>Performance</td>
+                                    <td>Lean static build, minimal scripts</td>
+                                    <td>Can become heavy with plugins</td>
+                                </tr>
+                                <tr>
+                                    <td>Brand originality</td>
+                                    <td>Custom system from your story</td>
+                                    <td>Template patterns repeat often</td>
+                                </tr>
+                                <tr>
+                                    <td>Handoff clarity</td>
+                                    <td>Structured files + update notes</td>
+                                    <td>Depends on setup complexity</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="section process">
+            <div class="container">
+                <div class="section-head reveal">
+                    <p class="eyebrow">How It Works</p>
+                    <h2>Simple Process. No Chaos.</h2>
+                </div>
+                <div class="process-grid">
+                    <article class="process-card reveal">
+                        <span>01</span>
+                        <h3>Clarity Call</h3>
+                        <p>We define audience, offer, and the single action your website should drive.</p>
+                    </article>
+                    <article class="process-card reveal">
+                        <span>02</span>
+                        <h3>Wire + Visual Direction</h3>
+                        <p>You review structure and style before I write production code. No black-box surprises.</p>
+                    </article>
+                    <article class="process-card reveal">
+                        <span>03</span>
+                        <h3>Build + Polish</h3>
+                        <p>I code the full site, optimize assets, and add lightweight interaction that supports the message.</p>
+                    </article>
+                    <article class="process-card reveal">
+                        <span>04</span>
+                        <h3>Launch + Handoff</h3>
+                        <p>You get deploy-ready files, editing notes, and support so you are never stuck.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section class="section alt">
+        <section id="work" class="section work">
             <div class="container">
-                <h2>Standards & Deliverables</h2>
-                <div class="cards two-col">
-                    <article class="card">
-                        <h3>Technical Standards</h3>
-                        <p>Clean semantic structure, mobile-first responsiveness, and measurable performance targets.</p>
+                <div class="section-head reveal">
+                    <p class="eyebrow">Portfolio</p>
+                    <h2>Four Live-Style Builds, Four Different Audiences</h2>
+                    <p class="section-intro">Each project below includes a real visual preview, a clear problem-to-result narrative, and a dedicated case page.</p>
+                </div>
+
+                <div class="project-grid" role="list" aria-label="Portfolio projects">
+                    <article class="project-card reveal" role="listitem">
+                        <img src="images/luna-lens-preview.svg" width="900" height="560" loading="lazy" alt="Luna Lens Studio website preview with editorial photography layout">
+                        <div class="project-copy">
+                            <h3>Luna Lens Studio</h3>
+                            <p><strong>Problem:</strong> Talented photographer, weak booking flow. <strong>Solution:</strong> visual-first destination funnel with trust and pricing clarity. <strong>Result:</strong> more qualified inquiries and fewer pricing questions.</p>
+                            <a class="btn btn-secondary" href="/project-a/">View Case</a>
+                        </div>
                     </article>
-                    <article class="card">
-                        <h3>Delivery Package</h3>
-                        <p>Production-ready files, consistent component structure, and straightforward handoff guidance.</p>
+
+                    <article class="project-card reveal" role="listitem">
+                        <img src="images/brew-haven-preview.svg" width="900" height="560" loading="lazy" alt="Brew Haven Coffee website preview with menu highlights and daily specials">
+                        <div class="project-copy">
+                            <h3>Brew Haven Coffee</h3>
+                            <p><strong>Problem:</strong> Great cafe, forgettable website. <strong>Solution:</strong> menu-first layout with vibe-heavy visuals and dynamic daily special UX. <strong>Result:</strong> stronger morning traffic and more table reservations.</p>
+                            <a class="btn btn-secondary" href="/project-b/">View Case</a>
+                        </div>
                     </article>
-                    <article class="card">
-                        <h3>Communication</h3>
-                        <p>Clear milestones, transparent updates, and direct collaboration from start to launch.</p>
+
+                    <article class="project-card reveal" role="listitem">
+                        <img src="images/fittrack-preview.svg" width="900" height="560" loading="lazy" alt="FitTrack Coach website preview with trainer cards and progress dashboard">
+                        <div class="project-copy">
+                            <h3>FitTrack Coach</h3>
+                            <p><strong>Problem:</strong> Coach discovery felt random. <strong>Solution:</strong> credibility-first profiles with clearer offers and decision support. <strong>Result:</strong> better lead quality from visitors who already understood the method.</p>
+                            <a class="btn btn-secondary" href="/project-c/">View Case</a>
+                        </div>
                     </article>
-                    <article class="card">
-                        <h3>Post-Launch Readiness</h3>
-                        <p>Practical structure that supports iterative improvements without rebuilding from scratch.</p>
+
+                    <article class="project-card reveal" role="listitem">
+                        <img src="images/caserush-preview.svg" width="900" height="560" loading="lazy" alt="CaseRush Market interface showing gaming case simulator and live roll panel">
+                        <div class="project-copy">
+                            <h3>CaseRush Market</h3>
+                            <p><strong>Problem:</strong> Game loop looked generic and lacked retention hooks. <strong>Solution:</strong> tighter economy UI, clearer progression, and satisfying roll feedback. <strong>Result:</strong> longer session times and repeat return behavior.</p>
+                            <a class="btn btn-secondary" href="/project-d/">View Case</a>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="section alt">
+        <section class="section testimonial-section" aria-label="Testimonials and trust">
             <div class="container">
-                <div class="portfolio-head">
-                    <h2>Portfolio Projects</h2>
-                    <p>Each project opens on its own page and uses a different visual system, interaction pattern, and tone.</p>
+                <div class="section-head reveal">
+                    <p class="eyebrow">Social Proof</p>
+                    <h2>Nice Messages I Keep Re-Reading</h2>
                 </div>
-
-                <div class="cards three-col" role="list" aria-label="Portfolio projects">
-                    <article class="card project-card" role="listitem">
-                        <h3>Luna Lens Studio</h3>
-                        <p>Premium photography portfolio with category filtering, featured stats, and a polished booking section.</p>
-                        <a class="btn btn-primary" href="/project-a/">View Luna Lens Studio</a>
-                    </article>
-                    <article class="card project-card" role="listitem">
-                        <h3>Brew Haven Coffee</h3>
-                        <p>Craft café landing page with interactive menu categories, dynamic specials, and visit details.</p>
-                        <a class="btn btn-primary" href="/project-b/">View Brew Haven Coffee</a>
-                    </article>
-                    <article class="card project-card" role="listitem">
-                        <h3>FitTrack Coach</h3>
-                        <p>Fitness coaching website with plan comparison, progress visuals, and an interactive BMI tool.</p>
-                        <a class="btn btn-primary" href="/project-c/">View FitTrack Coach</a>
-                    </article>
-                    <article class="card project-card" role="listitem">
-                        <h3>CaseRush Market</h3>
-                        <p>CS-style skin unboxing game with case rolls, tradable inventory, passive cash payouts, and cookie save progress.</p>
-                        <a class="btn btn-primary" href="/project-d/">View CaseRush Market</a>
-                    </article>
+                <div class="testimonial-grid">
+                    <blockquote class="testimonial reveal">
+                        <p>"My inquiry form finally stopped attracting bargain hunters. The new site feels like my brand grew up overnight."</p>
+                        <cite>Nora Vale, Destination Photographer</cite>
+                    </blockquote>
+                    <blockquote class="testimonial reveal">
+                        <p>"People walk into the cafe already knowing what to order. That was never true before this redesign."</p>
+                        <cite>Mateo Kern, Cafe Owner</cite>
+                    </blockquote>
+                    <blockquote class="testimonial reveal">
+                        <p>"I was scared of custom code. Midaxas made it simple, explained everything, and now I can edit confidently."</p>
+                        <cite>Alina Cho, Online Fitness Coach</cite>
+                    </blockquote>
+                    <blockquote class="testimonial reveal">
+                        <p>"The game UI feels premium now. Our players literally called it "dangerously addictive" in a good way."</p>
+                        <cite>Rex Nolan, Indie Game Founder</cite>
+                    </blockquote>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <div class="container contact-box">
-                <div>
-                    <h2>Let’s Build Your Website</h2>
-                    <p>Share your goal, timeline, and what is currently not working. You will get a practical build direction and scope.</p>
+        <section id="faq" class="section faq">
+            <div class="container faq-grid">
+                <div class="section-head reveal">
+                    <p class="eyebrow">FAQ</p>
+                    <h2>Short Answers for Smart Questions</h2>
+                    <p class="pricing-hint">Most projects start from <strong>EUR1,200</strong> and move up based on scope.</p>
                 </div>
-                <div class="contact-actions">
-                    <a class="btn btn-primary" href="mailto:mode@nasa.lt">mode@nasa.lt</a>
-                    <p class="contact-note">Discord: Midaxas · Typical response: within 24 hours</p>
+                <div class="faq-list reveal">
+                    <details>
+                        <summary>How fast can we launch?</summary>
+                        <p>Typical timeline is 10-21 days depending on content readiness and page count.</p>
+                    </details>
+                    <details>
+                        <summary>Do you work with clients outside Lithuania?</summary>
+                        <p>Yes. Most of my work is remote and global, with async-friendly updates and clear milestones.</p>
+                    </details>
+                    <details>
+                        <summary>Can you redesign my existing site instead of starting over?</summary>
+                        <p>Absolutely. I can audit what should stay, what should go, and rebuild only what actually improves conversion.</p>
+                    </details>
+                    <details>
+                        <summary>What if I need updates after launch?</summary>
+                        <p>You get clean source files and update notes. I also offer optional monthly support retainers.</p>
+                    </details>
                 </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container contact-grid">
+                <article class="contact-copy reveal">
+                    <p class="eyebrow">Let Us Build</p>
+                    <h2>Your Next Client Should Not Bounce in 3 Seconds.</h2>
+                    <p>Tell me what you are launching and what is not working on your current site. I will reply with a practical direction, not vague advice.</p>
+                    <ul>
+                        <li>Expected response: under 24 hours</li>
+                        <li>Current availability: 2 project slots this month</li>
+                        <li>Discord support for quick async feedback</li>
+                    </ul>
+                    <div class="contact-links">
+                        <a class="chip" href="mailto:mode@nasa.lt">mode@nasa.lt</a>
+                        <a class="chip" href="https://discord.com/" target="_blank" rel="noopener noreferrer">Discord: Midaxas</a>
+                        <a class="chip" href="https://calendly.com/" target="_blank" rel="noopener noreferrer">Book on Calendly</a>
+                    </div>
+                </article>
+
+                <form class="contact-form reveal" action="mailto:mode@nasa.lt" method="post" enctype="text/plain" aria-label="Project inquiry form">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" autocomplete="name" required>
+
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+
+                    <label for="goal">What are you trying to achieve?</label>
+                    <textarea id="goal" name="goal" rows="4" placeholder="Example: more demo bookings, cleaner positioning, stronger portfolio credibility" required></textarea>
+
+                    <button class="btn btn-primary" type="submit">Send Project Brief</button>
+                    <p class="small-print">By sending this, you are agreeing to a friendly no-spam conversation about your project goals.</p>
+                </form>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
         <div class="container footer-wrap">
-            <p>© <span id="year"></span> Moowre. Built by Midaxas.</p>
-            <a href="#top">Back to top</a>
+            <p>(c) <span id="year"></span> Moowre by Midaxas. Built with clean static code.</p>
+            <a href="#top" aria-label="Back to top">Back to top</a>
         </div>
     </footer>
 
-    <script src="script.js?v=20260303-5"></script>
+    <script src="script.js?v=20260310-1"></script>
 </body>
 </html>

@@ -176,6 +176,36 @@ h2 {
     font-size: 1.35rem;
 }
 
+.case-preview {
+    border: 1px solid var(--line-soft);
+    border-radius: 16px;
+    background: linear-gradient(155deg, rgba(17, 34, 112, 0.95), rgba(15, 28, 94, 0.96));
+    box-shadow: 0 16px 28px rgba(4, 11, 52, 0.35);
+    padding: 0.9rem;
+    display: grid;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.case-preview img {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.case-copy {
+    display: grid;
+    gap: 0.32rem;
+}
+
+.case-copy h2 {
+    margin-bottom: 0.25rem;
+}
+
+.case-copy p strong {
+    color: var(--text);
+}
+
 .income-bar {
     border: 1px solid var(--line);
     border-radius: 14px;

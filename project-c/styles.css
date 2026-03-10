@@ -133,6 +133,40 @@ footer {
     margin-top: 1rem;
 }
 
+.case-preview {
+    border: 1px solid #dedede;
+    border-radius: 12px;
+    background: #fff;
+    padding: 0.9rem;
+    display: grid;
+    gap: 0.8rem;
+}
+
+.case-preview img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+}
+
+.case-copy {
+    display: grid;
+    gap: 0.35rem;
+}
+
+.case-copy h2 {
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+}
+
+.case-copy p {
+    color: #4d4d4d;
+    font-size: 0.88rem;
+}
+
+.case-copy strong {
+    color: #1f1f1f;
+}
+
 .cta {
     border: none;
     border-radius: 6px;
